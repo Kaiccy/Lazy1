@@ -138,7 +138,7 @@
     self.goodsTitleArry3 = [[NSMutableArray alloc]initWithObjects:@"大米类",@"酒类",@"生蔬类", nil];
     
     self.imageArray = [[NSMutableArray alloc] init];
-    
+    //  未知   为什么是每个数组中有三张同样的图片
     self.imgArry1 = [[NSMutableArray alloc]initWithObjects:
                      [UIImage imageNamed:@"fruit.png"],
                      [UIImage imageNamed:@"fruit.png"],
@@ -353,11 +353,13 @@
     //海鲜按钮
     UIButton *seafoodBt = [[UIButton alloc]initWithFrame:CGRectMake(0, self.myScrollview.frame.size.height + self.myScrollview.frame.origin.y + 5, self.view.frame.size.width / 2 - 2.5, self.scrollerView.frame.size.height / 5)];
     seafoodBt.backgroundColor = [UIColor whiteColor];
+    //seafood.png 一条鱼
     [seafoodBt setImage:[UIImage imageNamed:@"seafood.png"] forState:UIControlStateNormal];
     [seafoodBt addTarget:self action:@selector(seafoodAction)
         forControlEvents:UIControlEventTouchUpInside];
     //添加限时抢购图片
     UIImageView *img1 = [[UIImageView alloc]initWithFrame:CGRectMake(seafoodBt.frame.size.width - 40, 0, 40, 40)];
+    //timeOrder1.png  图片右上角  “限时抢购”
     img1.image = [UIImage imageNamed:@"timeOrder1.png"];
     [seafoodBt addSubview:img1];
     [self.scrollerView addSubview:seafoodBt];
@@ -573,40 +575,35 @@
 }
 
 //收货地址
-- (IBAction)addressBt:(id)sender
-{
+- (IBAction)addressBt:(id)sender{
     GetGoodsAddressViewController *view = [[GetGoodsAddressViewController alloc]initWithNibName:@"GetGoodsAddressViewController" bundle:nil];
     [self presentViewController:view animated:YES completion:nil];
 
 }
 
 //我的账户
-- (IBAction)myAccountBt:(id)sender
-{
+- (IBAction)myAccountBt:(id)sender{
     MyAccountViewController *view = [[MyAccountViewController alloc]initWithNibName:@"MyAccountViewController" bundle:nil];
     [self presentViewController:view animated:YES completion:nil];
 
 }
 
 //关于
-- (IBAction)aboutBt:(id)sender
-{
+- (IBAction)aboutBt:(id)sender{
     AboutViewController *view = [[AboutViewController alloc]initWithNibName:@"AboutViewController" bundle:nil];
     [self presentViewController:view animated:YES completion:nil];
 
 }
 
 //登录注册
-- (IBAction)loginBt:(id)sender
-{
+- (IBAction)loginBt:(id)sender{
     UserLoginViewController *view = [[UserLoginViewController alloc]initWithNibName:@"UserLoginViewController" bundle:nil];
     [self presentViewController:view animated:YES completion:nil];
 
 }
 
 //联系我们
-- (IBAction)linkBt:(id)sender
-{
+- (IBAction)linkBt:(id)sender{
     LinkUsViewController *view = [[LinkUsViewController alloc]initWithNibName:@"LinkUsViewController" bundle:nil];
     [self presentViewController:view animated:YES completion:nil];
 }

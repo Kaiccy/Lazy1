@@ -78,7 +78,6 @@
     //初始化沙盒路径,并将命名文件名为FMDB
     self.path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/FMDB.sqlite"];
     NSLog(@"%@",self.path);
-    
     //创建FMDatabase对象,参数为沙盒路径
     //沙盒路径文件路径无需真实存在，如果不存在会自动创建。
     self.db = [FMDatabase databaseWithPath:self.path];
@@ -101,7 +100,6 @@
         //如果存在已登录 跳转到主页面
         if ([isLOGIN isEqualToString:@"YES"] || [StartPageManager sharedStartPageManager].firstLaunchl == NO)
         {
-    
             MainViewController *view = [[MainViewController alloc]init];
             self.window.rootViewController = view;
             //为该用户设置全局头像
@@ -109,34 +107,25 @@
             NSLog(@"自动登录成功");
             //如果已经登录  设置登录昵称
             NSLog(@"name = %@",self.name);
-            if (self.name.length != 0)
-            {
+            if (self.name.length != 0){
                 [view.loginBt setTitle:self.name forState:UIControlStateNormal];
                 
-            }
-            else if (self.userNickName != nil)
+            }else if (self.userNickName != nil)
             {
                 [view.loginBt setTitle:self.userNickName forState:UIControlStateNormal];
             }
-            else
-            {
+            else{
                 [view.loginBt setTitle:self.User forState:UIControlStateNormal];
             }
-            if ([self.db close])
-            {
+            if ([self.db close]){
                 NSLog(@"登录页面数据库已关闭");
-            }
-            else{
+            }else{
                 NSLog(@"登录页面数据库关闭失败");
             }
             //停止遍历
             //break;
         }
-        
-    }
-    
-    else
-    {
+    }else{
         //如果没有该表 就先跳到欢迎界面
         TransitionViewController *tranView = [[TransitionViewController alloc]init];
         self.window.rootViewController = tranView;
@@ -173,10 +162,8 @@
 }
 
 //数据库初始化
-- (void)DBInitialization
-{
-    if ([self.db open])
-    {
+- (void)DBInitialization{
+    if ([self.db open]){
         NSLog(@"首页打开数据库成功");
     }
     
@@ -238,7 +225,6 @@
         }
     }
 }
-
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     

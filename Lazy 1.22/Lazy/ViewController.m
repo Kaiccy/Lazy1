@@ -281,7 +281,6 @@
     lab1.textColor = [UIColor grayColor];
     lab1.font = [UIFont fontWithName:@"Arial" size:14.0];
     [footView addSubview:lab1];
-
     
     UILabel *lab2 = [[UILabel alloc]initWithFrame:CGRectMake(115, 15, 20, 20)];
     lab2.text = @"¥";
@@ -289,7 +288,6 @@
     lab2.font = [UIFont fontWithName:@"Arial" size:20.0];
     [footView addSubview:lab2];
 
-    
     //添加全选图片按钮
     _allSelectBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _allSelectBtn.frame = CGRectMake(15, 14, 20, 20);
@@ -317,8 +315,7 @@
     [footView addSubview:self.goToPayBt];    
     return footView;
 }
-- (void)initArry
-{
+- (void)initArry{
     
     self.idArry = [[NSMutableArray alloc] init];
     self.nameArry = [[NSMutableArray alloc] init];
@@ -334,15 +331,12 @@
 }
 
 //返回
-- (void)backAction
-{
-   
+- (void)backAction{
     [_MyTableView reloadData];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)goToPayAction
-{
+- (void)goToPayAction{
     //如果没有选中商品 不能提交到订单
     if (_allPriceLab.text.floatValue != 0.0)
     {

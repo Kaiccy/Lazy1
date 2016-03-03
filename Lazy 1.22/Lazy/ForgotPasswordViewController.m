@@ -127,8 +127,7 @@
 }
 
 //请求失败
-- (void)requestError1:(ASIHTTPRequest *)request
-{
+- (void)requestError1:(ASIHTTPRequest *)request{
     NSError *error = [request error];
     NSLog(@"%@", [error localizedDescription]);
 }
