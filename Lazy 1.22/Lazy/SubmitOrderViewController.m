@@ -62,7 +62,36 @@
     
     self.sendDateLb.text = locationString;
     
+    
+    //添加一个手势使得填完订单备注后，键盘收回，并且当前页面正常显示
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(textFeildGoBack)];
+    [self.view addGestureRecognizer:tap];
+    
 }
+
+// 键盘收回，页面跟着键盘下去
+- (void)textFeildGoBack{
+    if (self.remarksTextField.resignFirstResponder == YES) {
+        [self.remarksTextField resignFirstResponder];
+    
+    CGRect curFrame= CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + 110, self.view.frame.size.width, self.view.frame.size.height);
+    self.view.frame=curFrame;
+    }
+}
+
+//键盘弹出时，整个view向上移动
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+
+    
+    CGRect curFrame= CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y - 110, self.view.frame.size.width, self.view.frame.size.height);
+    [UIView animateWithDuration:0.3f animations:^{
+        
+        self.view.frame=curFrame;
+        
+    }];
+}
+
+
 
 - (void)layout
 {
@@ -144,11 +173,6 @@
     NSLog(@"%@", [error localizedDescription]);
 }
 
-//成为第一响应者 弹出键盘
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    [self becomeFirstResponder];
-}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 //当点击键盘上return按钮的时候调用
