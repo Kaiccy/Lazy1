@@ -9,7 +9,6 @@
             <connections>
                 <outlet property="search" destination="mXu-Er-ae3" id="xio-6u-uuD"/>
                 <outlet property="tableview" destination="DGO-IF-72b" id="DsD-D6-96r"/>
-                <outlet property="titleLb" destination="jZ4-nJ-bPh" id="fI4-hM-NOd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,11 +17,14 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OTZ-XR-1lC">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OTZ-XR-1lC">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcg-M8-z4y">
-                            <rect key="frame" x="8" y="22" width="25" height="25"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcg-M8-z4y">
+                            <rect key="frame" x="8" y="22" width="30" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="j1J-4x-FyQ"/>
+                            </constraints>
                             <state key="normal" image="arrow.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -30,29 +32,66 @@
                                 <action selector="backBt:" destination="-1" eventType="touchUpInside" id="Vm3-D7-erU"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="搜索" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZ4-nJ-bPh">
-                            <rect key="frame" x="0.0" y="20" width="320" height="30"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="搜  索" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yYt-to-gz4">
+                            <rect key="frame" x="88" y="25" width="412" height="24"/>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <color key="backgroundColor" red="0.63529411759999999" green="0.28627450980000002" blue="0.7843137255" alpha="1" colorSpace="deviceRGB"/>
+                    <constraints>
+                        <constraint firstItem="fcg-M8-z4y" firstAttribute="top" secondItem="OTZ-XR-1lC" secondAttribute="top" constant="22" id="5hY-Ak-nMn"/>
+                        <constraint firstItem="yYt-to-gz4" firstAttribute="leading" secondItem="fcg-M8-z4y" secondAttribute="trailing" constant="50" id="7el-R3-98b"/>
+                        <constraint firstAttribute="trailing" secondItem="yYt-to-gz4" secondAttribute="trailing" constant="100" id="Cbq-5D-bLk"/>
+                        <constraint firstItem="yYt-to-gz4" firstAttribute="top" secondItem="OTZ-XR-1lC" secondAttribute="top" constant="25" id="b2J-SM-ukS"/>
+                        <constraint firstAttribute="height" constant="64" id="bUB-UQ-Hrn"/>
+                        <constraint firstAttribute="bottom" secondItem="fcg-M8-z4y" secondAttribute="bottom" constant="10" id="mZY-X6-tMq"/>
+                        <constraint firstItem="fcg-M8-z4y" firstAttribute="leading" secondItem="OTZ-XR-1lC" secondAttribute="leading" constant="8" id="x7O-89-52v"/>
+                    </constraints>
                 </view>
-                <searchBar contentMode="redraw" fixedFrame="YES" placeholder="请输入您要购买的产品" translatesAutoresizingMaskIntoConstraints="NO" id="mXu-Er-ae3">
-                    <rect key="frame" x="0.0" y="60" width="320" height="44"/>
+                <searchBar contentMode="redraw" placeholder="请输入您要购买的产品" translatesAutoresizingMaskIntoConstraints="NO" id="mXu-Er-ae3">
+                    <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                     <color key="backgroundColor" red="0.63529411759999999" green="0.28627450980000002" blue="0.7843137255" alpha="1" colorSpace="deviceRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="anS-u5-QDM"/>
+                    </constraints>
                     <color key="tintColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="barTintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     <textInputTraits key="textInputTraits"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="anS-u5-QDM"/>
+                        </mask>
+                    </variation>
                 </searchBar>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="DGO-IF-72b">
-                    <rect key="frame" x="0.0" y="104" width="320" height="464"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="DGO-IF-72b">
+                    <rect key="frame" x="0.0" y="118" width="600" height="482"/>
                     <color key="backgroundColor" red="0.97254901959999995" green="0.98039215690000003" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="464" id="w9j-G0-ybw"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="w9j-G0-ybw"/>
+                        </mask>
+                    </variation>
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="0.97254901959999995" green="0.98039215690000003" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
-            <point key="canvasLocation" x="325" y="275"/>
+            <constraints>
+                <constraint firstItem="OTZ-XR-1lC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="JcV-BJ-3hJ"/>
+                <constraint firstItem="OTZ-XR-1lC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="PdL-9N-enL"/>
+                <constraint firstItem="mXu-Er-ae3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XRv-hH-mMu"/>
+                <constraint firstItem="DGO-IF-72b" firstAttribute="top" secondItem="mXu-Er-ae3" secondAttribute="bottom" constant="10" id="bxP-Nz-rIs"/>
+                <constraint firstAttribute="trailing" secondItem="mXu-Er-ae3" secondAttribute="trailing" id="exg-Ff-bm2"/>
+                <constraint firstAttribute="bottom" secondItem="DGO-IF-72b" secondAttribute="bottom" id="f99-Yw-QgK"/>
+                <constraint firstAttribute="trailing" secondItem="OTZ-XR-1lC" secondAttribute="trailing" id="fyg-aF-8Cw"/>
+                <constraint firstItem="mXu-Er-ae3" firstAttribute="top" secondItem="OTZ-XR-1lC" secondAttribute="bottom" id="pnr-ww-MA8"/>
+                <constraint firstItem="DGO-IF-72b" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="q5S-iY-W55"/>
+                <constraint firstAttribute="trailing" secondItem="DGO-IF-72b" secondAttribute="trailing" id="zF0-JC-PZl"/>
+            </constraints>
+            <point key="canvasLocation" x="363" y="154"/>
         </view>
     </objects>
     <resources>

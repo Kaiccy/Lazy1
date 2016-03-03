@@ -98,10 +98,13 @@
     if([returncode isEqualToString:@"ok"])
     {
         NSLog(@"查询订单成功!");
+        //在这里需要展示所查询的这条订单的纪录信息详情
     }
     else
     {
         NSLog(@"查询订单失败!");
+        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"温馨提示:" message:@"订单查询失败,请稍后重新查看" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
     }
     
     for (int i = 0; i < returnlistArry.count; i++)
@@ -231,11 +234,14 @@
         NSString *returncode = [dic objectForKey:@"returnCode"];
         if([returncode isEqualToString:@"ok"])
         {
+            //刷新收货纪录  将此条购买信息存入以购行列传入服务器与本地
             NSLog(@"确认收货成功!");
         }
         else
         {
             NSLog(@"确认收货失败!");
+            UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"温馨提示:" message:@"确认收货失败,请稍后重新确认" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
         }
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"再次确认" message:@"确认收货吗？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
         [alert show];
@@ -265,7 +271,7 @@
     NSURLRequest *requestUrl = [NSURLRequest requestWithURL:url];
     NSData *data = [NSURLConnection sendSynchronousRequest:requestUrl returningResponse:nil error:nil];
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-    //NSLog(@"%@",dic);
+    NSLog(@"%@",dic);
     NSString *returncode = [dic objectForKey:@"returnCode"];
     NSArray *returnlistArry = [dic objectForKey:@"returnList"];
     if([returncode isEqualToString:@"ok"])
@@ -274,7 +280,10 @@
     }
     else
     {
+        //在这里简单处理，提示一下就OK了
         NSLog(@"订单明细获取失败!");
+        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"温馨提示:" message:@"您的订单明细获取失败，请稍后重新获取" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
     }
     NSLog(@"returnlistArry = %@",returnlistArry);
 
@@ -366,7 +375,7 @@
     else if (stateStr.intValue == 4)
     {
         view.payStateLb.text = @"已成交";
-        //只显示删除订单和确认收货安妮
+        //只显示删除订单和确认收货按钮
         view.deleteOrderBt.hidden = NO;
         view.sureGetBt.hidden = YES;
         view.quitOrderBt.hidden = YES;
@@ -499,11 +508,14 @@
         NSString *returncode = [dic objectForKey:@"returnCode"];
         if([returncode isEqualToString:@"ok"])
         {
-            NSLog(@"删除订单成功!");
+            //在这里要做订单的这条记录删除这个功能的实现
+            NSLog(@"删除订单成功!!!");
         }
         else
         {
             NSLog(@"删除订单失败!");
+            UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"温馨提示:" message:@"订单删除失败  请稍后重新操作" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+            [alert show];
         }
         
         [self.priceArry removeObjectAtIndex:indexPath.row];

@@ -456,11 +456,12 @@
     [self.search resignFirstResponder];
 }
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar{
-    //开始编辑
+    
+    //search开始编辑
     return YES;
 }
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
-    //结束编辑
+    //search结束编辑
 }
 
 - (IBAction)backBt:(id)sender
