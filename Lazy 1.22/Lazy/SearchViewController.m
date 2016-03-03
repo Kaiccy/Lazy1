@@ -383,11 +383,13 @@
 
 }
 #pragma mark - UISearchBarDelegate
+
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
+    //编辑发生改变时调用
     [self.allGoodsArry removeAllObjects];
-    if (self.search.text.length != 0)
-    {
+    if (self.search.text.length != 0){
+        
         for (int i = 0; i < self.emptyArry.count; i ++)
         {
             if ([self.emptyArry[i] hasPrefix:self.search.text])
@@ -395,11 +397,11 @@
                 [self.allGoodsArry addObject:self.emptyArry[i]];
             }
         }
+        
         [self.tempArry setArray:self.allGoodsArry];
         [self.tableview reloadData];
-    }
-    else
-    {
+        
+    }else{
         for (int j = 0; j < self.allGoodsArry.count; j ++)
         {
             [self.allGoodsArry addObject:self.emptyArry[j]];
@@ -449,10 +451,17 @@
     NSLog(@"%@", [error localizedDescription]);
 }
 
-//- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
-//{
-//    [self.search resignFirstResponder];
-//}
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [self.search resignFirstResponder];
+}
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar{
+    //开始编辑
+    return YES;
+}
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
+    //结束编辑
+}
 
 - (IBAction)backBt:(id)sender
 {
