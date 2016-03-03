@@ -72,6 +72,7 @@
     
     //时钟
     UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(Width - 150, 62.5, 15, 15)];
+    //clock1.png  时钟
     img.image = [UIImage imageNamed:@"clock1.png"];
     [_m_backgroundView addSubview:img];
     

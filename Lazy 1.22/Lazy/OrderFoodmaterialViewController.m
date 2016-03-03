@@ -69,8 +69,10 @@
     if(indexPath.row == 0)
     {
         img.frame = CGRectMake(0, 0, self.view.frame.size.width / 2 - 10, (self.view.frame.size.height - 65) / 5);
+        //rice2.png  这张图显示错误   不应该是一张固定图   应该是从服务器获取当前需要展示的图片
         img.image = [UIImage imageNamed:@"rice2.png"];
         UIImageView *img2 = [[UIImageView alloc]initWithFrame:CGRectMake(img.frame.size.width - img.frame.size.width / 4, 0, img.frame.size.width / 4, img.frame.size.width / 4)];
+        //这张图显示位置不错
         img2.image = [UIImage imageNamed:@"timeOrder1.png"];
         [img addSubview:img2];
        
@@ -78,8 +80,10 @@
     else if(indexPath.row == 1)
     {
         img.frame = CGRectMake(0, 0, self.view.frame.size.width / 2 - 10, (self.view.frame.size.height - 65) / 5);
+        //oil.png  这张图显示错误  不应该是一张固定图   应该是从服务器获取当前需要展示的图片
         img.image = [UIImage imageNamed:@"oil.png"];
         UIImageView *img2 = [[UIImageView alloc]initWithFrame:CGRectMake(img.frame.size.width - img.frame.size.width / 4, 0, img.frame.size.width / 4, img.frame.size.width / 4)];
+        //这张图显示位置不错
         img2.image = [UIImage imageNamed:@"timeOrder1.png"];
         [img addSubview:img2];
         
@@ -87,8 +91,10 @@
     else if(indexPath.row == 2)
     {
         img.frame = CGRectMake(self.collection.frame.size.width / 4, 0, self.collection.frame.size.width / 2, (self.view.frame.size.height - 65) / 5);
+        //wine.png  这张图显示错误   不应该是一张固定图  应该是从服务器获取当前需要展示的图片
         img.image = [UIImage imageNamed:@"wine.png"];
         UIImageView *img2 = [[UIImageView alloc]initWithFrame:CGRectMake(self.view.frame.size.width - 5 -((self.view.frame.size.width / 2 - 10) / 4 ), 0, (self.view.frame.size.width / 2 - 10) / 4, (self.view.frame.size.height - 65) / 5)];
+        //这张图显示位置不错
         img2.image = [UIImage imageNamed:@"timeOrder2.png"];
         [view addSubview:img2];
     }

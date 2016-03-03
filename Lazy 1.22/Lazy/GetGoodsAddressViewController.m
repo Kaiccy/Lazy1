@@ -180,6 +180,7 @@
         NSString *returncode = [dic objectForKey:@"returnCode"];
         if([returncode isEqualToString:@"ok"])
         {
+            //删除本地与服务器之中存储的这个地址
             NSLog(@"删除地址成功!");
         }
         
@@ -330,6 +331,7 @@
     if([returncode isEqualToString:@"ok"])
     {
         NSLog(@"收货地址更新成功!");
+        //在本地与服务器上面都要存储一条新增加的收货地址
     }
     else
     {
