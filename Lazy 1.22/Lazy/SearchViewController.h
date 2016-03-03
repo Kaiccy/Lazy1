@@ -23,6 +23,7 @@
 - (void)doneLoadingTableViewData;
 
 @property (strong, nonatomic) IBOutlet UISearchBar *search;
+
 - (IBAction)backBt:(id)sender;
 @property (strong, nonatomic) IBOutlet UILabel *titleLb;
 
