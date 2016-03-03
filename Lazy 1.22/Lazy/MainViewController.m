@@ -61,6 +61,10 @@
     UISwipeGestureRecognizer *left = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(leftAction)];
     [left setDirection:UISwipeGestureRecognizerDirectionLeft];
     [self.view addGestureRecognizer:left];
+    
+    //添加轻拍手势，使得侧边栏返回
+    UITapGestureRecognizer *tapToBack = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToBack)];
+    [self.view addGestureRecognizer:tapToBack];
 
     //5个商品界面
     [self kindofGoods];
@@ -293,6 +297,14 @@
     self.orderView.frame = CGRectMake(-self.view.frame.size.width / 3 * 2,0, self.view.frame.size.width / 3 * 2, self.view.frame.size.height);
     [UIView commitAnimations];
     
+}
+
+//轻拍返回
+- (void)tapToBack{
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:1];
+    self.orderView.frame = CGRectMake(-self.view.frame.size.width / 3 * 2,0, self.view.frame.size.width / 3 * 2, self.view.frame.size.height);
+    [UIView commitAnimations];
 }
 
 //每隔1秒播放图片，其实是每隔1秒调用imgPlay方法
