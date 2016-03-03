@@ -492,6 +492,11 @@
             [self.dtlIdArry removeObjectAtIndex:indexPath.row];
             [self.carIdArry removeObjectAtIndex:indexPath.row];
             
+            //从商品列表中删除商品
+            [infoArr removeObjectAtIndex:indexPath.row];
+            //刷新总价格
+            [self totalPrice];
+            
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
 
         }
