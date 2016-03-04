@@ -11,6 +11,7 @@
 #import "SearchTableViewCell.h"
 #import "AppDelegate.h"
 #import "ASIFormDataRequest.h"
+#import "ASIHTTPRequest.h"
 
 @interface SearchViewController ()
 
@@ -103,7 +104,7 @@
     
     if([returncode isEqualToString:@"ok"])
     {
-        NSLog(@"所有信息获取成功!");
+        NSLog(@"01所有信息获取成功!");
     }
     
     for (int i = 0; i < returnlistArry.count; i++)
@@ -384,33 +385,43 @@
 }
 #pragma mark - UISearchBarDelegate
 
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
-{
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    
+    NSURL *url=[NSURL URLWithString:@"http://junjuekeji.com/appServlet?requestCode=B01&displayType=0&prodType=0&panicFlag=0&prodName=2"];
+     ASIHTTPRequest *requestUrl = [ASIHTTPRequest requestWithURL:url];
+     [requestUrl setDelegate:self];
+     [requestUrl setRequestMethod:@"GET"];
+     [requestUrl setDidFinishSelector:@selector(requestSearchMethodFinish:)];
+     [requestUrl setDidFailSelector:@selector(requestSearchMethodFail:)];
+     [requestUrl startSynchronous];
+    
+     [self.tempArry setArray:self.allGoodsArry];
+     [self.tableview reloadData];
+    
     //编辑发生改变时调用
     [self.allGoodsArry removeAllObjects];
     if (self.search.text.length != 0){
-        
-        for (int i = 0; i < self.emptyArry.count; i ++)
-        {
-            if ([self.emptyArry[i] hasPrefix:self.search.text])
-            {
+        for (int i = 0; i < self.emptyArry.count; i ++){
+            if ([self.emptyArry[i] hasPrefix:self.search.text]){
                 [self.allGoodsArry addObject:self.emptyArry[i]];
             }
         }
-        
-        [self.tempArry setArray:self.allGoodsArry];
-        [self.tableview reloadData];
-        
     }else{
-        for (int j = 0; j < self.allGoodsArry.count; j ++)
-        {
+        for (int j = 0; j < self.allGoodsArry.count; j ++){
             [self.allGoodsArry addObject:self.emptyArry[j]];
         }
         [self.tempArry setArray:self.allGoodsArry];
         [self.tableview reloadData];
     }
 }
-
+-(void)requestSearchMethodFinish:(id)message{
+    //点击搜索框完成的时候调用
+    NSLog(@"requestSearchMethodFinish");
+}
+-(void)requestSearchMethodFail:(id)message{
+    //搜索失败时候调用
+    NSLog(@"requestSearchMethodFail");
+}
 - (void)getShoppingCarInfo
 {
     AppDelegate *del = (AppDelegate *)[[UIApplication sharedApplication]delegate];
