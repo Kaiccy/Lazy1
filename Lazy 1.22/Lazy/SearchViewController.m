@@ -64,14 +64,23 @@
     self.tableview.dataSource = self;
     self.tableview.delegate = self;
     
+    
+    //添加一个手势使得键盘收回
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(textFeildGoBack)];
+    [self.view addGestureRecognizer:tap];
+}
+
+//回收键盘
+- (void)textFeildGoBack{
+    [self.search resignFirstResponder];
 }
 
 - (void)layout
 {
     //屏幕适配
+    
     self.view.frame = [[UIScreen mainScreen]bounds];
     
-    self.titleLb.frame = CGRectMake(0, 0, self.view.frame.size.width, 75);
     //去掉多余的分割线
     UIView *v = [[UIView alloc] initWithFrame:CGRectZero];
     [self.tableview setTableFooterView:v];

@@ -84,12 +84,12 @@
     NSDictionary *userInfo = [aNotification userInfo];
     NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
     CGRect keyboardRect = [aValue CGRectValue];
-    self.height = keyboardRect.size.height;
+    int keyBoardHeight = keyboardRect.size.height;
     
     //键盘与文本框的差高，也就是view应该上移的距离
-//    self.height = keyBoardHeight - (self.view.bounds.size.height - self.remarksTextField.frame.origin.y);
+    self.height = keyBoardHeight - (self.view.frame.size.height - self.remarksTextField.frame.origin.y);
     
-    CGRect curFrame= CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y - self.height, self.view.frame.size.width, self.view.frame.size.height);
+    CGRect curFrame= CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + self.height, self.view.frame.size.width, self.view.frame.size.height);
     [UIView animateWithDuration:0.3f animations:^{
     
             self.view.frame=curFrame;
@@ -103,7 +103,7 @@
     if (self.remarksTextField.resignFirstResponder == YES) {
         [self.remarksTextField resignFirstResponder];
     
-    CGRect curFrame= CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + self.height, self.view.frame.size.width, self.view.frame.size.height);
+    CGRect curFrame= CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y - self.height, self.view.frame.size.width, self.view.frame.size.height);
     self.view.frame=curFrame;
     }
 }

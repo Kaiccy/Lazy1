@@ -51,7 +51,24 @@
     //打开所需数据库
     [self DBInitialization];
 
+    
+    //添加一个手势使得键盘收回
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(textFeildGoBack)];
+    [self.view addGestureRecognizer:tap];
 
+}
+
+//回收键盘
+- (void)textFeildGoBack{
+    //登陆页面的
+    [self.telnumTextField resignFirstResponder];
+    [self.pwdTextField resignFirstResponder];
+    
+    //注册页面的
+    [self.rtelnumTextField resignFirstResponder];
+    [self.rpwdTextField resignFirstResponder];
+    [self.rsurecodeTextField resignFirstResponder];
+    [self.rsurePwdTextField resignFirstResponder];
 }
 
 - (void)layout

@@ -51,7 +51,21 @@
     {
         [self setTextlabelInfo];
     }
+    
+    //添加一个手势使得键盘收回
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(textFeildGoBack)];
+    [self.view addGestureRecognizer:tap];
 }
+
+//回收键盘
+- (void)textFeildGoBack{
+    [self.nameTextField resignFirstResponder];
+    [self.telNumTextField resignFirstResponder];
+    [self.birthTextField resignFirstResponder];
+    [self.otherTextField resignFirstResponder];
+}
+
+
 
 - (void)layout
 {
