@@ -47,6 +47,18 @@
     self.areaTextField.delegate = self;
     self.addressIdArry = [[NSMutableArray alloc] init];
     
+    //添加手势使得键盘回收
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardBack)];
+    [self.view addGestureRecognizer:tap];
+}
+
+//键盘回收
+- (void)keyboardBack{
+    [self.nameTextField resignFirstResponder];
+    [self.telTextField resignFirstResponder];
+    [self.provinceTextField resignFirstResponder];
+    [self.cityTextField resignFirstResponder];
+    [self.areaTextField resignFirstResponder];
 }
 
 - (void)layout
@@ -285,6 +297,7 @@
 }
 
 
+//定位省市
 - (IBAction)gpsBt1:(id)sender
 {
     if(self.provinceStr == nil && self.cityStr == nil && self.areaStr == nil)
@@ -298,6 +311,7 @@
     
 }
 
+//定位当前具体位置
 - (IBAction)gpsBt2:(id)sender
 {
     if(self.villageStr == nil)
