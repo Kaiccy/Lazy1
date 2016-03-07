@@ -170,6 +170,7 @@
             [self.rgetCodeBt setEnabled:NO];
             [self.sureLoginBt setEnabled:NO];
             [self.rightNowRegisterBt setEnabled:NO];
+            
         }
     }
     return YES;
@@ -422,7 +423,7 @@
     }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"登录错误" message:@"登录名或密码错误" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"确定已经注册？" message:@"登录名或密码错误" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
         [alert show];
     }
 
