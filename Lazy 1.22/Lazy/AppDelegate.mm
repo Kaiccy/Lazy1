@@ -33,7 +33,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
+    
     self.window.backgroundColor = [UIColor whiteColor];
     
     //设置搭档缺省头像
@@ -58,8 +58,7 @@
     _mapManager = [[BMKMapManager alloc]init];
     // 如果要关注网络及授权验证事件，请设定     generalDelegate参数
     BOOL ret = [_mapManager start:@"YZA1TOxz0A3rHLOUP4dZ2lXy"  generalDelegate:nil];
-    if (!ret)
-    {
+    if (!ret){
         NSLog(@"manager start failed!");
     }
     
@@ -73,7 +72,6 @@
     [MobClick setAppVersion:version];
     [MobClick profileSignInWithPUID:@"playerID"];
     [MobClick profileSignInWithPUID:@"playerID" provider:@"WB"];
-    
     
     //初始化沙盒路径,并将命名文件名为FMDB
     self.path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/FMDB.sqlite"];
@@ -166,87 +164,71 @@
     if ([self.db open]){
         NSLog(@"首页打开数据库成功");
     }
-    
 }
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
-{
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
     //1.支付宝
     //如果极简开发包不可用,会跳转支付宝钱包进行支付,需要将支付宝钱包的支付结果回传给开 发包
     if ([url.host isEqualToString:@"safepay"]) {
         [[AlipaySDK defaultService] processOrderWithPaymentResult:url
                                                   standbyCallback:^(NSDictionary *resultDic) {
                                                       NSLog(@"result = %@",resultDic);
+    //【由于在跳转支付宝客户端支付的过程中，商户app在后台很可能被系统kill了，所以pay接口的callback就会失效，请商户对standbyCallback返回的回调结果进行处理,就是在这个方法里面处理跟callback一样的逻辑】
                                                   }]; }
     if ([url.host isEqualToString:@"platformapi"]){ //支付宝钱包快登授权返回 authCode
         [[AlipaySDK defaultService] processAuthResult:url standbyCallback:^(NSDictionary *resultDic) {
             NSLog(@"result = %@",resultDic);
+    //【由于在跳转支付宝客户端支付的过程中，商户app在后台很可能被系统kill了，所以pay接口的callback就会失效，请商户对standbyCallback返回的回调结果进行处理,就是在这个方法里面处理跟callback一样的逻辑】
         }];
     }
+    //[ShareSDK handleOpenURL:url sourceApplication:sourceApplication annotation:annotation wxDelegate:self];
     //2.微信
     [WXApi handleOpenURL:url delegate:self];
     
     return YES;
 }
 
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
-{
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
     return  [WXApi handleOpenURL:url delegate:self];
 }
-
-- (void)onResp:(BaseResp *)resp
-{
+- (void)onResp:(BaseResp *)resp{
+    
     NSString *strMsg = [NSString stringWithFormat:@"errcode:%d", resp.errCode];
     NSString *strTitle;
     
-    if([resp isKindOfClass:[SendMessageToWXResp class]])
-    {
+    if([resp isKindOfClass:[SendMessageToWXResp class]]){
         strTitle = [NSString stringWithFormat:@"发送媒体消息结果"];
-    }
-    if([resp isKindOfClass:[PayResp class]])
-    {
+    }if([resp isKindOfClass:[PayResp class]]){
         //支付返回结果，实际支付结果需要去微信服务器端查询
         strTitle = [NSString stringWithFormat:@"支付结果"];
         
-        switch (resp.errCode)
-        {
-            case WXSuccess:
-            {
+        switch (resp.errCode){
+            case WXSuccess:{
                 strMsg = @"支付结果：成功！";
                 NSLog(@"支付成功－PaySuccess，retcode = %d", resp.errCode);
                 break;
-            }
-            default:
-            {
+            }default:{
                 strMsg = [NSString stringWithFormat:@"支付结果：失败！retcode = %d, retstr = %@", resp.errCode,resp.errStr];
-                NSLog(@"错误，retcode = %d, retstr = %@", resp.errCode,resp.errStr);
-                
+                NSLog(@"appDelegate.mm -> 222  错误 : retcode = %d, retstr = %@", resp.errCode,resp.errStr);
                 break;
             }
         }
     }
 }
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-    
+- (void)applicationWillResignActive:(UIApplication *)application{
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 }
-
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
-
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
-
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
-
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
 @end

@@ -21,28 +21,20 @@
 
 @implementation ChoosePayViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
     
     self.view.frame = [[UIScreen mainScreen]bounds];
-    
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
-- (IBAction)backBt:(id)sender
-{
+- (IBAction)backBt:(id)sender{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-- (IBAction)alipayBt:(id)sender
-{
+- (IBAction)alipayBt:(id)sender{
     /**
      *  1. 生成订单信息
      */
@@ -80,23 +72,17 @@
      *  3. 将签名成功字符串格式化为订单字符串,请严格按照该格式
      */
     NSString *orderString = nil;
-    if (signedString != nil)
-    {
+    if (signedString != nil){
         orderString = [NSString stringWithFormat:@"%@&sign=\"%@\"&sign_type=\"%@\"", orderSpec, signedString, @"RSA"];
         [[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic) {
             NSLog(@"reslut = %@",resultDic);
         }];
     }
-
-    
-    
 }
 
-- (IBAction)weichatpayBt:(id)sender
-{
+- (IBAction)weichatpayBt:(id)sender{
     //判断是否安装微信
-    if ([WXApi isWXAppInstalled])
-    {
+    if ([WXApi isWXAppInstalled]){
         //从服务器获取支付参数，服务端自定义处理逻辑和格式
         //订单标题
         NSString *ORDER_NAME = self.ordernumStr;
@@ -162,16 +148,12 @@
     }
 }
 //客户端提示信息
-- (void)alert:(NSString *)title msg:(NSString *)msg
-{
+- (void)alert:(NSString *)title msg:(NSString *)msg{
     UIAlertView *alter = [[UIAlertView alloc] initWithTitle:title message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     
     [alter show];
 }
-
-
-- (IBAction)getGoodsPayBt:(id)sender
-{
+- (IBAction)getGoodsPayBt:(id)sender{
     
     NSString *str = @"货到付款";
     NSString *str1 = [str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -187,34 +169,26 @@
     [requestUrl startSynchronous];
     
 }
-
-- (void)requestSuccess1:(ASIHTTPRequest *)request
-{
+- (void)requestSuccess1:(ASIHTTPRequest *)request{
     NSData *data  = [request responseData];
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
     NSLog(@"%@",dic);
     NSString *returncode = [dic objectForKey:@"returnCode"];
-    if([returncode isEqualToString:@"ok"])
-    {
+    if([returncode isEqualToString:@"ok"]){
         NSLog(@"货到付款支付订单成功!");
-        
         SuccessPayViewController *view = [[SuccessPayViewController alloc]initWithNibName:@"SuccessPayViewController" bundle:nil];
         [self presentViewController:view animated:YES completion:nil];
     }
-    else
-    {
-        NSLog(@"货到付款订单失败!");
+    else{
+        UIAlertView *alertVie=[[UIAlertView alloc] initWithTitle:@"温馨提示:" message:@"货到付款支付订单失败,请稍后重试 ..." delegate:self cancelButtonTitle:@"OK !" otherButtonTitles:nil, nil];
+        [alertVie show];
     }
 }
-
-- (void)requestError1:(ASIHTTPRequest *)request
-{
+- (void)requestError1:(ASIHTTPRequest *)request{
     NSError *error = [request error];
     NSLog(@"%@", [error localizedDescription]);
 }
-
-- (void)viewWillDisappear:(BOOL)animated
-{
+- (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter]removeObserver:self];//移除通知
 }
