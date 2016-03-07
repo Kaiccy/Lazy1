@@ -163,22 +163,15 @@
             int total = timeStr.intValue + 480 - timeSp.intValue;
             double time = [[NSDate date] timeIntervalSinceDate:now];
             double remainTime = total - time;
-            if (remainTime < 0.0)
-            {
+            if (remainTime < 0.0){
                 [self.remainTimeArry addObject:@"NO"];
-            }
-            else
-            {
+            }else{
                 [self.remainTimeArry addObject:@"YES"];
             }
-        }
-        else
-        {
+        }else{
             [self.remainTimeArry addObject:@"YES"];
         }
-
     }
-    
     //重置数组
     [self.emptyArry setArray:self.allGoodsArry];
     
@@ -190,43 +183,31 @@
             UIImage *img =  [UIImage imageWithData:[NSData
                                                     dataWithContentsOfURL:[NSURL URLWithString:[ NSString stringWithFormat:@"http://junjuekeji.com/resources/images/uploadImgs/%@",self.goodsImgNameArry[i]]]]];
             [self.goodsImgArry addObject:img];
-            
-        }
-        else
-        {
+        }else{
             [self.goodsImgArry addObject:[UIImage imageNamed:@"moren.png"]];
         }
     }
-    
 }
 
 //请求失败
-- (void)requestError:(ASIHTTPRequest *)request
-{
+- (void)requestError:(ASIHTTPRequest *)request{
     NSError *error = [request error];
     NSLog(@"%@", [error localizedDescription]);
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
 }
 #pragma mark Data Source Loading / Reloading Methods
 
-- (void)reloadTableViewDataSource
-{
-    
-    //  should be calling your tableviews data source model to reload
-    //  put here just for demo
+- (void)reloadTableViewDataSource{
+
     _reloading = YES;
-    
-    
 }
 
 - (void)doneLoadingTableViewData{
-    
-    //  model should call this when its done loading
+   
     _reloading = NO;
     [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:self.tableview];
 }
