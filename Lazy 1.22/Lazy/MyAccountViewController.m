@@ -348,13 +348,6 @@
     }
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-//当点击键盘上return按钮的时候调用
-{
-    //代理记录了当前正在工作的UITextField的实例，因此你点击哪个UITextField对象，形参就是哪个UITextField对象
-    [textField resignFirstResponder];//键盘回收代码
-    return YES;
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -460,6 +453,7 @@
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     //取消按钮事件
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        
     }];
 
     //退出登录按钮事件
@@ -484,8 +478,19 @@
         //删除相应登陆信息
         NSString *delete1 = [NSString stringWithFormat:@"DELETE FROM LOGIN_STATE WHERE TEL = '%@';", self.User];
         [self.db executeUpdate:delete1];
-        //退出程序
-        exit(2);
+        
+        
+        //退出登录并返回主页面
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"退出成功 " preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+            MainViewController *mainViewC = [MainViewController new];
+            [self presentViewController:mainViewC animated:YES completion:nil];
+        }];
+        [alert addAction:sureAction];
+        [self presentViewController:alert animated:YES completion:nil];
+        
+        
     }
 }
 
