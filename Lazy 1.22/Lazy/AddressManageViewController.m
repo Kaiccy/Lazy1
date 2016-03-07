@@ -76,6 +76,9 @@
         [requestUrl setDidFailSelector:@selector(requestError1:)];
         [requestUrl startSynchronous];
 
+        //保存成功提示
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"保存成功" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+        [alert show];
     }
     
 

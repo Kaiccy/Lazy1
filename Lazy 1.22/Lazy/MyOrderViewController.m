@@ -59,7 +59,7 @@
 
 - (void)layout
 {
-    self.view.frame = [[UIScreen mainScreen]bounds];
+    self.view.frame = [[UIScreen mainScreen] bounds];
     //去掉多余的分割线
     UIView *v = [[UIView alloc] initWithFrame:CGRectZero];
     [self.tableView setTableFooterView:v];

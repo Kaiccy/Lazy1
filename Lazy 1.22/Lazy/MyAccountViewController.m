@@ -480,7 +480,7 @@
         [self.db executeUpdate:delete1];
         
         
-        //退出登录并返回主页面
+        //退出登录，删除订单列表并返回主页面
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"退出成功 " preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             
