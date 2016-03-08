@@ -646,7 +646,6 @@
     {
         NSLog(@"登录数据库关闭失败");
     }
-    
 }
 
 - (void)requestError4:(ASIHTTPRequest *)request
@@ -808,7 +807,7 @@
     {
         //上传数据
         NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"http://junjuekeji.com/appServlet?requestCode=A01&phoneNumber=%@",self.rtelnumTextField.text]];
-        
+
         ASIHTTPRequest *requestUrl = [ASIHTTPRequest requestWithURL:url];
         [requestUrl setDelegate:self];
         [requestUrl setRequestMethod:@"GET"];
@@ -817,7 +816,6 @@
         [requestUrl setDidFailSelector:@selector(requestError7:)];
         [requestUrl startSynchronous];
     }
-    
 }
 
 - (void)requestSuccess7:(ASIHTTPRequest *)request
@@ -848,15 +846,12 @@
     self.rgetCodeBt.enabled = NO;
     self.second = self.second - 1;
     self.registerCodeLb.text = [NSString stringWithFormat:@"还剩%d秒",self.second];
-    if (self.second == 0)
-    {
+    if (self.second == 0){
         [tm invalidate];
         self.rgetCodeBt.enabled = YES;
         self.registerCodeLb.hidden = YES;
         self.rgetCodeBt.hidden = NO;
     }
-    
-
 }
 //立即注册
 - (IBAction)rightNowRegisterBt:(id)sender

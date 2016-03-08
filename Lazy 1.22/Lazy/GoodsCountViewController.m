@@ -16,13 +16,11 @@
 @end
 
 @implementation GoodsCountViewController
-- (void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     [self.tableView reloadData];
 }
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
     
     //签代理
@@ -33,29 +31,24 @@
     [self layout];
 }
 
-- (void)layout
-{
+- (void)layout{
     UIView *v = [[UIView alloc] initWithFrame:CGRectZero];
     [self.tableView setTableFooterView:v];
 }
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 #pragma mark - tableView
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     AppDelegate *del = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     return del.listNameArray.count;
 }
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 80;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     AppDelegate *del = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     static NSString *cellID = @"cellID";
     UINib *nib = [UINib nibWithNibName:@"GoodsCountTableViewCell" bundle:nil];
@@ -68,8 +61,7 @@
     cell.goodsPrice.text = [NSString stringWithFormat:@"%.2f",price.floatValue];
     return cell;
 }
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     AppDelegate *del = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     
     //通知中心 输入所要发送的信息 ，同时将label的值通过button方法调用传递，
@@ -87,8 +79,7 @@
 }
 
 
-- (IBAction)backBt:(id)sender
-{
+- (IBAction)backBt:(id)sender{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

@@ -150,7 +150,6 @@
 		954642CD1BCCD89D0083CDB8 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 954642CB1BCCD89D0083CDB8 /* SearchViewController.xib */; };
 		954642D31BCCF3360083CDB8 /* LinkUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 954642D11BCCF3360083CDB8 /* LinkUsViewController.m */; };
 		954642D41BCCF3360083CDB8 /* LinkUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 954642D21BCCF3360083CDB8 /* LinkUsViewController.xib */; };
-		954642DA1BCCF95F0083CDB8 /* erweima.png in Resources */ = {isa = PBXBuildFile; fileRef = 954642D91BCCF95F0083CDB8 /* erweima.png */; };
 		9546E4F81C084EE500AD25CA /* libUMCheckUpdate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9546E4F61C084EE500AD25CA /* libUMCheckUpdate.a */; };
 		9548C4991C0550DD001D4EA6 /* AddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9548C4981C0550DD001D4EA6 /* AddressViewController.xib */; };
 		9548C49D1C055EC4001D4EA6 /* wrong1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9548C49A1C055EC4001D4EA6 /* wrong1@3x.png */; };
@@ -455,7 +454,6 @@
 		954642D01BCCF3360083CDB8 /* LinkUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkUsViewController.h; sourceTree = "<group>"; };
 		954642D11BCCF3360083CDB8 /* LinkUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkUsViewController.m; sourceTree = "<group>"; };
 		954642D21BCCF3360083CDB8 /* LinkUsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LinkUsViewController.xib; sourceTree = "<group>"; };
-		954642D91BCCF95F0083CDB8 /* erweima.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = erweima.png; sourceTree = "<group>"; };
 		9546E4F61C084EE500AD25CA /* libUMCheckUpdate.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMCheckUpdate.a; sourceTree = "<group>"; };
 		9546E4F71C084EE500AD25CA /* UMCheckUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMCheckUpdate.h; sourceTree = "<group>"; };
 		9548C4981C0550DD001D4EA6 /* AddressViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressViewController.xib; sourceTree = "<group>"; };
@@ -1138,7 +1136,6 @@
 			children = (
 				952D04721C044582005F305F /* chooseSex.png */,
 				952D04731C044582005F305F /* chooseSex1.png */,
-				954642D91BCCF95F0083CDB8 /* erweima.png */,
 				959433021BC8BB1500DCCD4D /* clock.png */,
 				959433031BC8BB1500DCCD4D /* clock1.png */,
 				952D04761C0445B0005F305F /* user.png */,
@@ -1465,7 +1462,6 @@
 				TargetAttributes = {
 					95DDC9AE1BB139CB0068CC32 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = 2ZLDRNPV9Z;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1558,7 +1554,6 @@
 				952D04601C044371005F305F /* seafood.png in Resources */,
 				9537C89B1BD8DD4F00F6D3B6 /* jian@3x.png in Resources */,
 				953BF9C81BD7597F00A95FD1 /* arrow.png in Resources */,
-				954642DA1BCCF95F0083CDB8 /* erweima.png in Resources */,
 				956EC3771BC5FB9B0058CB1F /* AboutViewController.xib in Resources */,
 				9537C8B11BD8DDA200F6D3B6 /* wrong@3x.png in Resources */,
 				952D04741C044582005F305F /* chooseSex.png in Resources */,
