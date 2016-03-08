@@ -426,7 +426,7 @@
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"确定已经注册？" message:@"登录名或密码错误" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
         [alert show];
     }
-
+    
 }
 
 - (void)requestError2:(ASIHTTPRequest *)request
