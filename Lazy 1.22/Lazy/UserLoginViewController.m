@@ -896,7 +896,7 @@
     if (self.rtelnumTextField.text.length != 0 && self.rpwdTextField.text.length >= 6 && self.rpwdTextField.text.length <= 12 && self.rsurecodeTextField.text.length != 0 && [self.rpwdTextField.text isEqualToString:self.rsurePwdTextField.text] && [returncode1 isEqualToString:@"ok"])
     {
         //创建用户接口
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://junjuekeji.com/appServlet?requestCode=A03&loginName=%@&passwd=%@&loginType=1&phoneNumber=%@",self.rtelnumTextField.text,self.rpwdTextField.text,self.rtelnumTextField.text]];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://junjuekeji.com/appServlet?requestCode=A03&loginName=%@&passwd=%@&loginType=1&phoneNumber=%@&userName=%@",self.rtelnumTextField.text,self.rpwdTextField.text,self.rtelnumTextField.text,self.rtelnumTextField.text]];
         NSLog(@"----------%@",self.rtelnumTextField.text);
         
         ASIHTTPRequest *requestUrl = [ASIHTTPRequest requestWithURL:url];
