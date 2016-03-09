@@ -351,7 +351,7 @@
     self.mytimer = nil;
 }
 
-//这个事判断定时器滚动的时候，实时判断滚动位置，以让Page Controll显示当前的点是哪一个点
+//这个是判断定时器滚动的时候，实时判断滚动位置，以让Page Controll显示当前的点是哪一个点
 //这个需要在总宽度上加上半个scrollView的宽度，是为了保证拖拽到一半时候左右的效果
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
