@@ -25,10 +25,19 @@
 
 @interface AppDelegate ()
 
+@property(nonatomic,assign)BOOL allowRotation;
+
 @end
 
 @implementation AppDelegate
 
+-(NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+    if (self.allowRotation) {
+        //全部禁止横屏
+        return UIInterfaceOrientationMaskAll;
+    }
+    return UIInterfaceOrientationMaskPortrait;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
