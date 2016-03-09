@@ -247,6 +247,8 @@
 		95AE99801C4CBDB30096ADAE /* RSADataSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AE99711C4CBDB30096ADAE /* RSADataSigner.m */; };
 		95AE99811C4CBDB30096ADAE /* RSADataVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AE99731C4CBDB30096ADAE /* RSADataVerifier.m */; };
 		95AE998F1C4CCB1F0096ADAE /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95AE998E1C4CCB1F0096ADAE /* libcrypto.a */; };
+		95D51D991C8FB84E0035CC02 /* LegalNoticeClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D51D971C8FB84E0035CC02 /* LegalNoticeClassViewController.m */; };
+		95D51D9E1C8FBCAE0035CC02 /* UserAgreementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D51D9D1C8FBCAE0035CC02 /* UserAgreementViewController.m */; };
 		95DDC9B51BB139CB0068CC32 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DDC9B41BB139CB0068CC32 /* main.m */; };
 		95DDC9B81BB139CB0068CC32 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 95DDC9B71BB139CB0068CC32 /* AppDelegate.mm */; };
 		95DDC9BA1BB139CB0068CC32 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95DDC9B91BB139CB0068CC32 /* Images.xcassets */; };
@@ -673,6 +675,10 @@
 		95AE99721C4CBDB30096ADAE /* RSADataVerifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSADataVerifier.h; sourceTree = "<group>"; };
 		95AE99731C4CBDB30096ADAE /* RSADataVerifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSADataVerifier.m; sourceTree = "<group>"; };
 		95AE998E1C4CCB1F0096ADAE /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		95D51D961C8FB84D0035CC02 /* LegalNoticeClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegalNoticeClassViewController.h; sourceTree = "<group>"; };
+		95D51D971C8FB84E0035CC02 /* LegalNoticeClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegalNoticeClassViewController.m; sourceTree = "<group>"; };
+		95D51D9C1C8FBCAE0035CC02 /* UserAgreementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserAgreementViewController.h; sourceTree = "<group>"; };
+		95D51D9D1C8FBCAE0035CC02 /* UserAgreementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserAgreementViewController.m; sourceTree = "<group>"; };
 		95DDC9AF1BB139CB0068CC32 /* Lazy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lazy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95DDC9B31BB139CB0068CC32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95DDC9B41BB139CB0068CC32 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -966,6 +972,7 @@
 				956EC3731BC5FB9B0058CB1F /* AboutViewController.h */,
 				956EC3741BC5FB9B0058CB1F /* AboutViewController.m */,
 				956EC3751BC5FB9B0058CB1F /* AboutViewController.xib */,
+				95D51D9B1C8FB8A10035CC02 /* AfeiAddClass */,
 				954642D01BCCF3360083CDB8 /* LinkUsViewController.h */,
 				954642D11BCCF3360083CDB8 /* LinkUsViewController.m */,
 				954642D21BCCF3360083CDB8 /* LinkUsViewController.xib */,
@@ -1341,6 +1348,17 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		95D51D9B1C8FB8A10035CC02 /* AfeiAddClass */ = {
+			isa = PBXGroup;
+			children = (
+				95D51D961C8FB84D0035CC02 /* LegalNoticeClassViewController.h */,
+				95D51D971C8FB84E0035CC02 /* LegalNoticeClassViewController.m */,
+				95D51D9C1C8FBCAE0035CC02 /* UserAgreementViewController.h */,
+				95D51D9D1C8FBCAE0035CC02 /* UserAgreementViewController.m */,
+			);
+			name = AfeiAddClass;
+			sourceTree = "<group>";
+		};
 		95DDC9A61BB139CB0068CC32 = {
 			isa = PBXGroup;
 			children = (
@@ -1679,12 +1697,14 @@
 				9539C45B1C3CE44500505224 /* TimeCell.m in Sources */,
 				9541F3361C23CCC600B18017 /* WXUtil.mm in Sources */,
 				956EC37B1BC5FCDD0058CB1F /* MyAccountViewController.m in Sources */,
+				95D51D9E1C8FBCAE0035CC02 /* UserAgreementViewController.m in Sources */,
 				95AE99811C4CBDB30096ADAE /* RSADataVerifier.m in Sources */,
 				95AE997F1C4CBDB30096ADAE /* openssl_wrapper.m in Sources */,
 				954011111BCE20B70017B814 /* SuccessPayViewController.m in Sources */,
 				9536C0441BEAF25E004303D7 /* Reachability.m in Sources */,
 				9594332F1BC8D9BA00DCCD4D /* GetGoodsAddressViewController.m in Sources */,
 				954642C11BCCCBB50083CDB8 /* TransitionViewController.m in Sources */,
+				95D51D991C8FB84E0035CC02 /* LegalNoticeClassViewController.m in Sources */,
 				9539C45A1C3CE44500505224 /* PanicViewController.m in Sources */,
 				95377C511BC764A1005DB290 /* VegetablesTableViewCell.m in Sources */,
 				956EC3761BC5FB9B0058CB1F /* AboutViewController.m in Sources */,

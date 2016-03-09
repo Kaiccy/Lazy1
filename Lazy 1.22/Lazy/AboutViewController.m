@@ -7,6 +7,9 @@
 //
 
 #import "AboutViewController.h"
+#import "MainViewController.h"
+#import "LegalNoticeClassViewController.h"//免责声明文件
+#import "UserAgreementViewController.h"//用户协议文件
 
 @interface AboutViewController ()
 
@@ -40,10 +43,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)addLegalNoticeClass:(UIButton *)sender {
+    //在这里跳转至免责声明类
+    LegalNoticeClassViewController *nextVC=[[LegalNoticeClassViewController alloc] init];
+    [self presentViewController:nextVC animated:YES completion:nil];
+}
+- (IBAction)userAgreementClass:(UIButton *)sender {
+    //在这里跳转至用户协议类
+    UserAgreementViewController *nextVC=[[UserAgreementViewController alloc] init];
+    [self presentViewController:nextVC animated:YES completion:nil];
+}
 
 
 - (IBAction)backBt:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    MainViewController *nextVC=[[MainViewController alloc] init];
+    [self presentViewController:nextVC animated:YES completion:nil];
 }
 @end
