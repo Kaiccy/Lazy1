@@ -829,6 +829,10 @@
     {
         self.registerCodeLb.hidden = NO;
         self.rgetCodeBt.hidden = YES;
+        
+        //保证每次倒计时都是从60开始
+        self.second = 60;
+        
         self.registerCodeLb.text = [NSString stringWithFormat:@"还剩%d秒",self.second];
         [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(descreaseTimeAction2:) userInfo:nil repeats:YES];
     }
@@ -893,6 +897,7 @@
     {
         //创建用户接口
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://junjuekeji.com/appServlet?requestCode=A03&loginName=%@&passwd=%@&loginType=1&phoneNumber=%@",self.rtelnumTextField.text,self.rpwdTextField.text,self.rtelnumTextField.text]];
+        NSLog(@"----------%@",self.rtelnumTextField.text);
         
         ASIHTTPRequest *requestUrl = [ASIHTTPRequest requestWithURL:url];
         [requestUrl setDelegate:self];
@@ -926,11 +931,19 @@
     NSData *data  = [request responseData];
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
     NSLog(@"%@",dic);
+    
+    
     NSString *returncode = [dic objectForKey:@"returnCode"];
+    
+//    [request startSynchronous];
+
     if ([returncode isEqualToString:@"ok"])
     {
         //注册成功，隐藏注册界面
         self.registerView.hidden = YES;
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册成功" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+        [alert show];
         
         NSLog(@"注册成功！");
     }
