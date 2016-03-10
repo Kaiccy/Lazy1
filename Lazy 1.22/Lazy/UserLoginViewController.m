@@ -897,7 +897,7 @@
     {
         //创建用户接口
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://junjuekeji.com/appServlet?requestCode=A03&loginName=%@&passwd=%@&loginType=1&phoneNumber=%@&userName=%@",self.rtelnumTextField.text,self.rpwdTextField.text,self.rtelnumTextField.text,self.rtelnumTextField.text]];
-        NSLog(@"----------%@",self.rtelnumTextField.text);
+
         
         ASIHTTPRequest *requestUrl = [ASIHTTPRequest requestWithURL:url];
         [requestUrl setDelegate:self];
