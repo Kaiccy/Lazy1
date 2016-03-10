@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>en</string>
+	<string>zh_CN</string>
 	<key>CFBundleDisplayName</key>
 	<string>懒猪社区</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<string>com.www.junjuekeji.Lazy</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -70,6 +70,19 @@
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>baidumap</string>
+		<string>mqzone</string>
+		<string>alipayauth</string>
+		<string>alipa</string>
+		<string>mqq</string>
+		<string>mqqapi</string>
+		<string>mqqopensdkapiv3</string>
+		<string>mqqopensdkapiv2</string>
+		<string>mqqapiwallet</string>
+		<string>mqqwpa</string>
+		<string>mqqbrowser</string>
+		<string>wtloginmqq2</string>
+		<string>weixin</string>
+		<string>wechat</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
