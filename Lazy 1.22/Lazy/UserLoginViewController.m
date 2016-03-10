@@ -393,6 +393,7 @@
     
     if ([result isEqualToString:self.pwdStr] || [returncode1 isEqualToString:@"ok"] || [self.pwdTextField.text isEqualToString:self.pwdStr])
     {
+        
         //清除登录状态表之前的表记录
         NSString *sqlstr = [NSString stringWithFormat:@"DELETE FROM LOGIN_STATE"];
         if (![self.db executeUpdate:sqlstr])
@@ -407,6 +408,8 @@
         //修改该账号的登录状态为YES
         NSString *insertSql1 = [NSString stringWithFormat:@"INSERT INTO LOGIN_STATE (TEL, LOGIN) VALUES ('%@', '%@')",self.telnumTextField.text, @"YES"];
         [self.db executeUpdate:insertSql1];
+
+        NSLog(@"登录成功");
         
         if ([self.db close])
         {
@@ -418,6 +421,8 @@
         }
     
         del.User = self.telnumTextField.text;
+        
+        
         [self dismissViewControllerAnimated:YES completion:nil];
         
     }

@@ -49,7 +49,7 @@
 @property (copy, nonatomic)NSString *goodsNameStr;
 @property (copy, nonatomic)NSString *goodsPriceStr;
 
-//添加地址传到收获地址里
+//添加地址传到收货地址里
 @property (strong, nonatomic)NSMutableArray *personNameArray;
 @property (strong, nonatomic)NSMutableArray *personTelArray;
 @property (strong, nonatomic)NSMutableArray *provinceArray;

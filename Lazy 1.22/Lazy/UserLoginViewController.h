@@ -14,6 +14,8 @@
 #import "FMDB.h"
 #import "ASIHTTPRequest.h"
 
+
+
 @interface UserLoginViewController : UIViewController<UITextFieldDelegate,ASIHTTPRequestDelegate>
 
 @property (copy, nonatomic) NSString *path;               //沙盒数据库路径
