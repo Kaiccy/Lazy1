@@ -32,6 +32,11 @@
 {
     [self.view reloadInputViews];
     [super viewWillAppear:YES];
+    
+    //改变登录注册按钮的标题
+//        AppDelegate *del = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+//        self.loginBt.titleLabel.text = del.User;
+    
 }
 
 - (void)viewDidLoad
@@ -71,6 +76,7 @@
     [self kindofGoods];
     
 }
+
 
 //布局
 - (void)layout

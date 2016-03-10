@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "FMDB.h"
 #import "ASIHTTPRequest.h"
+#import "UserLoginViewController.h"
 
 @interface MainViewController : UIViewController<UIScrollViewDelegate,UIGestureRecognizerDelegate,ASIHTTPRequestDelegate>
 
