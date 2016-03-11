@@ -71,53 +71,42 @@
     
     
     //增加监听，当键盘出现时
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     
 }
 
 //当键盘出现或改变时调用
 
-- (void)keyboardWillShow:(NSNotification *)aNotification
-
-{
-    //获取键盘的高度
-    NSDictionary *userInfo = [aNotification userInfo];
-    NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
-    CGRect keyboardRect = [aValue CGRectValue];
-    int keyBoardHeight = keyboardRect.size.height;
-    
-    //键盘与文本框的差高，也就是view应该上移的距离
-    self.height = keyBoardHeight - (self.view.frame.size.height - self.remarksTextField.frame.origin.y);
-    
-    CGRect curFrame= CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + self.height, self.view.frame.size.width, self.view.frame.size.height);
-    [UIView animateWithDuration:0.3f animations:^{
-    
-            self.view.frame=curFrame;
-
-    }];
-    
-}
+//- (void)keyboardWillShow:(NSNotification *)aNotification
+//
+//{
+//    //获取键盘的高度
+//    NSDictionary *userInfo = [aNotification userInfo];
+//    NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+//    CGRect keyboardRect = [aValue CGRectValue];
+//    int keyBoardHeight = keyboardRect.size.height;
+//    
+//    //键盘与文本框的差高，也就是view应该上移的距离
+//    self.height = keyBoardHeight - (self.view.frame.size.height - self.remarksTextField.frame.origin.y);
+//    
+//    CGRect curFrame= CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + self.height, self.view.frame.size.width, self.view.frame.size.height);
+//    [UIView animateWithDuration:0.3f animations:^{
+//    
+//            self.view.frame=curFrame;
+//
+//    }];
+//    
+//}
 
 // 键盘收回，页面跟着键盘下去
 - (void)textFeildGoBack{
     if (self.remarksTextField.resignFirstResponder == YES) {
         [self.remarksTextField resignFirstResponder];
     
-    CGRect curFrame= CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y - self.height, self.view.frame.size.width, self.view.frame.size.height);
-    self.view.frame=curFrame;
+//    CGRect curFrame= CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y - self.height, self.view.frame.size.width, self.view.frame.size.height);
+//    self.view.frame=curFrame;
     }
 }
-
-//键盘弹出时，整个view向上移动
-//- (void)textFieldDidBeginEditing:(UITextField *)textField{
-//
-//    CGRect curFrame= CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y - self.view.frame.size.height/2, self.view.frame.size.width, self.view.frame.size.height);
-//    [UIView animateWithDuration:0.3f animations:^{
-//        
-//        self.view.frame=curFrame;
-//        
-//    }];
-//}
 
 
 
