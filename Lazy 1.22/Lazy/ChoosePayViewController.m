@@ -112,7 +112,7 @@
             //IOS5自带解析类NSJSONSerialization从response中解析出数据放到字典中
             dict = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
             
-            NSLog(@"url:%@",urlString);
+            NSLog(@"afei----01-------》url:%@",urlString);
             if(dict != nil){
                 NSMutableString *retcode = [dict objectForKey:@"retcode"];
                 if (retcode.intValue == 0){
@@ -129,7 +129,7 @@
                     req.sign = [dict objectForKey:@"sign"];
                     [WXApi sendReq:req];
                     //日志输出
-                    NSLog(@"appid=%@\npartid=%@\nprepayid=%@\nnoncestr=%@\ntimestamp=%ld\npackage=%@\nsign=%@",req.openID,req.partnerId,req.prepayId,req.nonceStr,(long)req.timeStamp,req.package,req.sign );
+                    NSLog(@"afei-----02-------->appid=%@\npartid=%@\nprepayid=%@\nnoncestr=%@\ntimestamp=%ld\npackage=%@\nsign=%@",req.openID,req.partnerId,req.prepayId,req.nonceStr,(long)req.timeStamp,req.package,req.sign );
                 }else{
                     [self alert:@"提示信息" msg:[dict objectForKey:@"retmsg"]];
                 }
