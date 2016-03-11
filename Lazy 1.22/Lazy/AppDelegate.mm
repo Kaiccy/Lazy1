@@ -23,7 +23,7 @@
 
 #import "StartPageManager.h"
 
-@interface AppDelegate ()
+@interface AppDelegate ()<WXApiDelegate>
 
 @property(nonatomic,assign)BOOL allowRotation;
 
@@ -190,6 +190,8 @@
         }];
     }
     //[ShareSDK handleOpenURL:url sourceApplication:sourceApplication annotation:annotation wxDelegate:self];
+    
+    
     //2.微信
     [WXApi handleOpenURL:url delegate:self];
     
@@ -199,6 +201,9 @@
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
     return  [WXApi handleOpenURL:url delegate:self];
 }
+
+
+#pragma mark - WXApiDelegate
 - (void)onResp:(BaseResp *)resp{
     
     NSString *strMsg = [NSString stringWithFormat:@"errcode:%d", resp.errCode];
@@ -223,6 +228,14 @@
         }
     }
 }
+
+- (BOOL)application:(UIApplication *)application openURL:(nonnull NSURL *)url options:(nonnull NSDictionary<NSString *,id> *)options
+{
+    return [WXApi handleOpenURL:url delegate:self];
+    
+}
+
+
 - (void)applicationWillResignActive:(UIApplication *)application{
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

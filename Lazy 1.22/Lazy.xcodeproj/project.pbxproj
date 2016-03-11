@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D4733B71C923C94000F581F /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D4733B41C923C94000F581F /* libWeChatSDK.a */; };
 		6D5847571C875A420024F1BA /* StartPageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D5847561C875A420024F1BA /* StartPageManager.m */; };
 		952D044B1C044015005F305F /* alipay.png in Resources */ = {isa = PBXBuildFile; fileRef = 952D04481C044015005F305F /* alipay.png */; };
 		952D044C1C044015005F305F /* huo.png in Resources */ = {isa = PBXBuildFile; fileRef = 952D04491C044015005F305F /* huo.png */; };
@@ -269,6 +270,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6D4733B41C923C94000F581F /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		6D4733B51C923C94000F581F /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		6D4733B61C923C94000F581F /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		6D5847551C875A420024F1BA /* StartPageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartPageManager.h; sourceTree = "<group>"; };
 		6D5847561C875A420024F1BA /* StartPageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartPageManager.m; sourceTree = "<group>"; };
 		952D04481C044015005F305F /* alipay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alipay.png; sourceTree = "<group>"; };
@@ -704,6 +708,7 @@
 				95AE98FA1C4CAB3B0096ADAE /* BaiduMapAPI_Base.framework in Frameworks */,
 				95AE98FB1C4CAB3B0096ADAE /* BaiduMapAPI_Cloud.framework in Frameworks */,
 				95AE98FC1C4CAB3B0096ADAE /* BaiduMapAPI_Location.framework in Frameworks */,
+				6D4733B71C923C94000F581F /* libWeChatSDK.a in Frameworks */,
 				95AE98FD1C4CAB3B0096ADAE /* BaiduMapAPI_Map.framework in Frameworks */,
 				95AE98FE1C4CAB3B0096ADAE /* BaiduMapAPI_Radar.framework in Frameworks */,
 				95AE98FF1C4CAB3B0096ADAE /* BaiduMapAPI_Search.framework in Frameworks */,
@@ -744,6 +749,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6D4733B31C923C94000F581F /* SDKExport */ = {
+			isa = PBXGroup;
+			children = (
+				6D4733B41C923C94000F581F /* libWeChatSDK.a */,
+				6D4733B51C923C94000F581F /* WXApi.h */,
+				6D4733B61C923C94000F581F /* WXApiObject.h */,
+			);
+			path = SDKExport;
+			sourceTree = "<group>";
+		};
 		95331A4A1BE3052B00D27F0C /* FMDB */ = {
 			isa = PBXGroup;
 			children = (
@@ -1011,6 +1026,7 @@
 		9541F32D1C23CCC600B18017 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				6D4733B31C923C94000F581F /* SDKExport */,
 				9541F32E1C23CCC600B18017 /* ApiXml.h */,
 				9541F32F1C23CCC600B18017 /* ApiXml.mm */,
 				9541F3301C23CCC600B18017 /* payRequsestHandler.h */,
@@ -1911,6 +1927,7 @@
 					"$(PROJECT_DIR)/Lazy/UMCheckUpdate",
 					"$(PROJECT_DIR)/Lazy",
 					"$(PROJECT_DIR)/Lazy/Alipay",
+					"$(PROJECT_DIR)/Lazy/lib/SDKExport",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "Hangzhoujunjue.$(PRODUCT_NAME:rfc1034identifier)";
@@ -1956,6 +1973,7 @@
 					"$(PROJECT_DIR)/Lazy/UMCheckUpdate",
 					"$(PROJECT_DIR)/Lazy",
 					"$(PROJECT_DIR)/Lazy/Alipay",
+					"$(PROJECT_DIR)/Lazy/lib/SDKExport",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "Hangzhoujunjue.$(PRODUCT_NAME:rfc1034identifier)";
