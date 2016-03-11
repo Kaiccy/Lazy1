@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		6D4733B71C923C94000F581F /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D4733B41C923C94000F581F /* libWeChatSDK.a */; };
+		6D4FD40C1C933B5D008ED251 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D4FD40B1C933B5D008ED251 /* libc++.tbd */; };
+		6D4FD40E1C933B6E008ED251 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D4FD40D1C933B6E008ED251 /* libz.tbd */; };
+		6D4FD4101C933B9D008ED251 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D4FD40F1C933B9D008ED251 /* libsqlite3.0.tbd */; };
 		6D5847571C875A420024F1BA /* StartPageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D5847561C875A420024F1BA /* StartPageManager.m */; };
 		952D044B1C044015005F305F /* alipay.png in Resources */ = {isa = PBXBuildFile; fileRef = 952D04481C044015005F305F /* alipay.png */; };
 		952D044C1C044015005F305F /* huo.png in Resources */ = {isa = PBXBuildFile; fileRef = 952D04491C044015005F305F /* huo.png */; };
@@ -273,6 +276,9 @@
 		6D4733B41C923C94000F581F /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		6D4733B51C923C94000F581F /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		6D4733B61C923C94000F581F /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		6D4FD40B1C933B5D008ED251 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		6D4FD40D1C933B6E008ED251 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		6D4FD40F1C933B9D008ED251 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		6D5847551C875A420024F1BA /* StartPageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartPageManager.h; sourceTree = "<group>"; };
 		6D5847561C875A420024F1BA /* StartPageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartPageManager.m; sourceTree = "<group>"; };
 		952D04481C044015005F305F /* alipay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alipay.png; sourceTree = "<group>"; };
@@ -703,6 +709,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D4FD4101C933B9D008ED251 /* libsqlite3.0.tbd in Frameworks */,
+				6D4FD40E1C933B6E008ED251 /* libz.tbd in Frameworks */,
+				6D4FD40C1C933B5D008ED251 /* libc++.tbd in Frameworks */,
+				955F41D81C1A91B1003F4B8F /* CoreTelephony.framework in Frameworks */,
 				95AE998F1C4CCB1F0096ADAE /* libcrypto.a in Frameworks */,
 				95AE99771C4CBDB30096ADAE /* libssl.a in Frameworks */,
 				95AE98FA1C4CAB3B0096ADAE /* BaiduMapAPI_Base.framework in Frameworks */,
@@ -718,7 +728,6 @@
 				957D44B41C1FB4C500B49463 /* OpenGLES.framework in Frameworks */,
 				954343B31C1EA0BE00F08A8B /* ImageIO.framework in Frameworks */,
 				95AE99751C4CBDB30096ADAE /* AlipaySDK.framework in Frameworks */,
-				955F41D81C1A91B1003F4B8F /* CoreTelephony.framework in Frameworks */,
 				9536C04A1BEAF351004303D7 /* libxml2.dylib in Frameworks */,
 				9536C0461BEAF328004303D7 /* CFNetwork.framework in Frameworks */,
 				9536C01E1BEAE4DD004303D7 /* libstdc++.6.dylib in Frameworks */,
@@ -1378,6 +1387,9 @@
 		95DDC9A61BB139CB0068CC32 = {
 			isa = PBXGroup;
 			children = (
+				6D4FD40F1C933B9D008ED251 /* libsqlite3.0.tbd */,
+				6D4FD40D1C933B6E008ED251 /* libz.tbd */,
+				6D4FD40B1C933B5D008ED251 /* libc++.tbd */,
 				95DDC9B11BB139CB0068CC32 /* Lazy */,
 				95DDC9C51BB139CC0068CC32 /* LazyTests */,
 				95DDC9B01BB139CB0068CC32 /* Products */,
@@ -1496,6 +1508,7 @@
 				TargetAttributes = {
 					95DDC9AE1BB139CB0068CC32 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = X58B6KYAPE;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
