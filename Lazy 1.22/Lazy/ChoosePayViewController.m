@@ -112,7 +112,7 @@
             //IOS5自带解析类NSJSONSerialization从response中解析出数据放到字典中
             dict = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
             
-            NSLog(@"afei----01-------》url:%@",urlString);
+            NSLog(@"url:%@",urlString);
             if(dict != nil){
                 NSMutableString *retcode = [dict objectForKey:@"retcode"];
                 if (retcode.intValue == 0){
@@ -120,7 +120,7 @@
                     
                     //调起微信支付
                     PayReq* req = [[PayReq alloc] init];
-                    req.openID = [dict objectForKey:@"wx16408db628773d61"];
+//                    req.openID = [dict objectForKey:@"wx16408db628773d61"];
                     req.partnerId = [dict objectForKey:@"partnerid"];
                     req.prepayId = [dict objectForKey:@"prepayid"];
                     req.nonceStr = [dict objectForKey:@"noncestr"];
