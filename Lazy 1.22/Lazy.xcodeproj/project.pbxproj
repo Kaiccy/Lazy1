@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6D3436EE1C94C96900455666 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3436EB1C94C96900455666 /* GDataXMLNode.m */; };
 		6D3436EF1C94C96900455666 /* WeChatPayController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6D3436ED1C94C96900455666 /* WeChatPayController.mm */; };
+		6D3436F21C94CABF00455666 /* CommonUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3436F11C94CABF00455666 /* CommonUtil.m */; };
 		6D4733B71C923C94000F581F /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D4733B41C923C94000F581F /* libWeChatSDK.a */; };
 		6D4FD40C1C933B5D008ED251 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D4FD40B1C933B5D008ED251 /* libc++.tbd */; };
 		6D4FD40E1C933B6E008ED251 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D4FD40D1C933B6E008ED251 /* libz.tbd */; };
@@ -279,6 +280,8 @@
 		6D3436EB1C94C96900455666 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
 		6D3436EC1C94C96900455666 /* WeChatPayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeChatPayController.h; sourceTree = "<group>"; };
 		6D3436ED1C94C96900455666 /* WeChatPayController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WeChatPayController.mm; sourceTree = "<group>"; };
+		6D3436F01C94CABF00455666 /* CommonUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUtil.h; sourceTree = "<group>"; };
+		6D3436F11C94CABF00455666 /* CommonUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUtil.m; sourceTree = "<group>"; };
 		6D4733B41C923C94000F581F /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		6D4733B51C923C94000F581F /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		6D4733B61C923C94000F581F /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
@@ -937,6 +940,8 @@
 		954010ED1BCDE5ED0017B814 /* pay */ = {
 			isa = PBXGroup;
 			children = (
+				6D3436F01C94CABF00455666 /* CommonUtil.h */,
+				6D3436F11C94CABF00455666 /* CommonUtil.m */,
 				6D3436EA1C94C96900455666 /* GDataXMLNode.h */,
 				6D3436EB1C94C96900455666 /* GDataXMLNode.m */,
 				6D3436EC1C94C96900455666 /* WeChatPayController.h */,
@@ -1742,6 +1747,7 @@
 				954011111BCE20B70017B814 /* SuccessPayViewController.m in Sources */,
 				6D3436EF1C94C96900455666 /* WeChatPayController.mm in Sources */,
 				9536C0441BEAF25E004303D7 /* Reachability.m in Sources */,
+				6D3436F21C94CABF00455666 /* CommonUtil.m in Sources */,
 				9594332F1BC8D9BA00DCCD4D /* GetGoodsAddressViewController.m in Sources */,
 				954642C11BCCCBB50083CDB8 /* TransitionViewController.m in Sources */,
 				95D51D991C8FB84E0035CC02 /* LegalNoticeClassViewController.m in Sources */,

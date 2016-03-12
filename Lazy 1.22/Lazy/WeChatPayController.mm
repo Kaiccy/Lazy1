@@ -15,15 +15,15 @@
 /**
  *  微信开放平台申请得到的 appid, 需要同时添加在 URL schema
  */
-NSString * const WXAppId = @"xxxxxxxxxxxx";
+NSString * const WXAppId = @"wx16408db628773d61";
 
 /**
  *  申请微信支付成功后，发给你的邮件里的微信支付商户号
  */
-NSString * const WXPartnerId = @"xxxxxxxxxxxx";
+NSString * const WXPartnerId = @"1283026301";
 
 /** API密钥 去微信商户平台设置--->账户设置--->API安全， 参与签名使用 */
-NSString * const WXAPIKey = @"xxxxxxxxxxxx";
+NSString * const WXAPIKey = @"d4624c36b6795d1d99dcf0547af5443d";
 
 /** 获取prePayId的url, 这是官方给的接口 */
 NSString * const getPrePayIdUrl = @"https://api.mch.weixin.qq.com/pay/unifiedorder";
