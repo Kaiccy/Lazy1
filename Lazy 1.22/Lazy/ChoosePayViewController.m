@@ -129,7 +129,7 @@
                     req.sign = [dict objectForKey:@"sign"];
                     [WXApi sendReq:req];
                     //日志输出
-                    NSLog(@"afei-----02-------->appid=%@\npartid=%@\nprepayid=%@\nnoncestr=%@\ntimestamp=%ld\npackage=%@\nsign=%@",req.openID,req.partnerId,req.prepayId,req.nonceStr,(long)req.timeStamp,req.package,req.sign );
+                    NSLog(@"appid=%@\npartid=%@\nprepayid=%@\nnoncestr=%@\ntimestamp=%ld\npackage=%@\nsign=%@",req.openID,req.partnerId,req.prepayId,req.nonceStr,(long)req.timeStamp,req.package,req.sign );
                 }else{
                     [self alert:@"提示信息" msg:[dict objectForKey:@"retmsg"]];
                 }
