@@ -142,9 +142,12 @@
 //        }
         
         
+        NSString * priceTemp = [NSString stringWithFormat:@"%f", self.totalPriceLb.text.floatValue * 100 ];
+        NSString * priceReal = [NSString stringWithFormat:@"%d",[priceTemp intValue]];
         WeChatPayController *wechatVC = [[WeChatPayController alloc] init];
-        wechatVC.price = [NSString stringWithFormat:@"%.2f", self.totalPriceLb.text.floatValue]; //商品价格
+        wechatVC.price =  priceReal;//商品价
         wechatVC.name = self.ordernumStr;
+        
         [self showDetailViewController:wechatVC sender:nil];
 
     }

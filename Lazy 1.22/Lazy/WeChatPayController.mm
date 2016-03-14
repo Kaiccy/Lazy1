@@ -36,7 +36,7 @@ NSString * const getPrePayIdUrl = @"https://api.mch.weixin.qq.com/pay/unifiedord
     [super viewDidLoad];
     
     
-    [self getWeChatPayWithOrderName:self.name price:self.price];
+    [self getWeChatPayWithOrderName:self.name price:@"0.01"];
     
 }
 
