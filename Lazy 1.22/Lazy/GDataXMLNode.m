@@ -276,7 +276,7 @@ static xmlChar *SplitQNameReverse(const xmlChar *qname, xmlChar **prefix) {
   } else {
     theClass = [GDataXMLNode class];
   }
-  return [[[theClass alloc] initConsumingXMLNode:theXMLNode] autorelease];
+  return [[theClass alloc] initConsumingXMLNode:theXMLNode];
 }
 
 - (id)initConsumingXMLNode:(xmlNodePtr)theXMLNode {
@@ -296,7 +296,7 @@ static xmlChar *SplitQNameReverse(const xmlChar *qname, xmlChar **prefix) {
     theClass = [GDataXMLNode class];
   }
 
-  return [[[theClass alloc] initBorrowingXMLNode:theXMLNode] autorelease];
+  return [[theClass alloc] initBorrowingXMLNode:theXMLNode];
 }
 
 - (id)initBorrowingXMLNode:(xmlNodePtr)theXMLNode {
@@ -310,13 +310,13 @@ static xmlChar *SplitQNameReverse(const xmlChar *qname, xmlChar **prefix) {
 
 - (void)releaseCachedValues {
 
-  [cachedName_ release];
+//  [cachedName_ release];
   cachedName_ = nil;
 
-  [cachedChildren_ release];
+//  [cachedChildren_ release];
   cachedChildren_ = nil;
 
-  [cachedAttributes_ release];
+//  [cachedAttributes_ release];
   cachedAttributes_ = nil;
 }
 
@@ -368,7 +368,7 @@ static xmlChar *SplitQNameReverse(const xmlChar *qname, xmlChar **prefix) {
   result = [NSString stringWithUTF8String:(const char *) chars];
   if (cacheDict) {
     // save the string in the document's string cache
-    CFDictionarySetValue(cacheDict, chars, result);
+    CFDictionarySetValue(cacheDict, chars, (__bridge const void *)(result));
   }
 
   return result;
@@ -381,7 +381,7 @@ static xmlChar *SplitQNameReverse(const xmlChar *qname, xmlChar **prefix) {
   }
 
   [self releaseCachedValues];
-  [super dealloc];
+//  [super dealloc];
 }
 
 #pragma mark -

@@ -10,7 +10,7 @@
 
 @interface WeChatPayController : UIViewController
 
-
+@property(nonatomic,strong)NSString *name,*price;
 
 @end
 

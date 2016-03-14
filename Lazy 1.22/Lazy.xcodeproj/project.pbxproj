@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6D3436EE1C94C96900455666 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3436EB1C94C96900455666 /* GDataXMLNode.m */; };
+		6D3436EE1C94C96900455666 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3436EB1C94C96900455666 /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6D3436EF1C94C96900455666 /* WeChatPayController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6D3436ED1C94C96900455666 /* WeChatPayController.mm */; };
 		6D3436F21C94CABF00455666 /* CommonUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3436F11C94CABF00455666 /* CommonUtil.m */; };
 		6D4733B71C923C94000F581F /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D4733B41C923C94000F581F /* libWeChatSDK.a */; };
@@ -1945,6 +1945,7 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/Lazy/Alipay",
+					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = Lazy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
@@ -1991,6 +1992,7 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/Lazy/Alipay",
+					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = Lazy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
