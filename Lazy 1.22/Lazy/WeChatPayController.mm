@@ -11,6 +11,8 @@
 #import "CommonUtil.h"
 #import "GDataXMLNode.h"
 
+#import "SuccessPayViewController.h"
+
 
 /**
  *  微信开放平台申请得到的 appid, 需要同时添加在 URL schema
@@ -36,7 +38,11 @@ NSString * const getPrePayIdUrl = @"https://api.mch.weixin.qq.com/pay/unifiedord
     [super viewDidLoad];
     
     
-    [self getWeChatPayWithOrderName:self.name price:@"0.01"];
+    [self getWeChatPayWithOrderName:self.name price:self.price];
+    
+    //支付成功后跳出支付成功页面
+//    SuccessPayViewController *success = [SuccessPayViewController new];
+//    [self presentViewController:success animated:YES completion:nil];
     
 }
 

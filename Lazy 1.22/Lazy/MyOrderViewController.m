@@ -116,7 +116,8 @@
         [self.stateArry addObject:[prodSubpDic objectForKey:@"stateName"]];
         if ([[prodSubpDic objectForKey:@"stateName"] isEqualToString:@"待支付"])
         {
-            [self.orderState2Arry addObject:@"去支付"];
+//            [self.orderState2Arry addObject:@"去支付"];
+            [self.orderState2Arry addObject:@"确认收货"];
             [self.colorArry addObject:[UIColor colorWithRed:162.0 / 255.0 green:73.0 / 255.0 blue:200.0 / 255.0 alpha:1.0]];
         }
         else if ([[prodSubpDic objectForKey:@"stateName"] isEqualToString:@"已付款"])
