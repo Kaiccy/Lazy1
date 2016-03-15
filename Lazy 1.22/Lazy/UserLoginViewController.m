@@ -14,6 +14,7 @@
 #import "ASIDownloadCache.h"
 #import <CommonCrypto/CommonDigest.h>
 #import "UMSocial.h"
+#import "MainViewController.h"
 
 @class MainViewController;
 
@@ -315,6 +316,7 @@
 //确定登录
 - (IBAction)sureLoginBt:(id)sender
 {
+    NSLog(@"===================userloginviewcontroller319");
     if ((self.telnumTextField.text.length > 0 && self.pwdTextField.text.length > 0) || (self.telnumTextField.text.length > 0 && self.sureTextField.text.length > 0))
     {
         //用户信息获取接口
@@ -327,6 +329,9 @@
         [requestUrl setDidFinishSelector:@selector(requestSuccess1:)];
         [requestUrl setDidFailSelector:@selector(requestError1:)];
         [requestUrl startSynchronous];
+        NSLog(@"===================userloginviewcontroller331");
+        MainViewController *nextVC=[[MainViewController alloc] init];
+        [self presentViewController:nextVC animated:YES completion:nil];
     }
     else
     {
@@ -364,7 +369,7 @@
 
 - (void)requestError1:(ASIHTTPRequest *)request{
     NSError *error = [request error];
-    NSLog(@"%@", [error localizedDescription]);
+    NSLog(@"===================userloginviewcontroller372");
 }
 
 - (void)requestSuccess2:(ASIHTTPRequest *)request{
@@ -410,7 +415,8 @@
         [self.db executeUpdate:insertSql1];
 
         NSLog(@"登录成功");
-        
+        MainViewController *nextVC=[[MainViewController alloc] init];
+        [self presentViewController:nextVC animated:YES completion:nil];
         if ([self.db close])
         {
             NSLog(@"登录页面数据库已关闭");
@@ -455,7 +461,7 @@
             
             UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToQQ];
             
-            NSLog(@"username is %@, uid is %@, token is %@ url is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
+            NSLog(@"afei---->QQ登录------->username is %@, uid is %@, token is %@ url is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
             
             //创建用户接口
             NSURL *url1 = [NSURL URLWithString:[[NSString stringWithFormat:@"http://junjuekeji.com/appServlet?requestCode=A03&loginName=%@&passwd=123456&loginType=2&nickName=%@&sexType=%d&userName=%@",del.User,del.userNickName,self.sexType,del.User] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
@@ -499,7 +505,8 @@
         }
 
     }];
-
+    MainViewController *nextVC=[[MainViewController alloc] init];
+    [self presentViewController:nextVC animated:YES completion:nil];
 }
 
 - (void)requestSuccess3:(ASIHTTPRequest *)request
@@ -512,7 +519,7 @@
     NSString *returncode = [dic objectForKey:@"returnCode"];
     if ([returncode isEqualToString:@"ok"])
     {
-        NSLog(@"第三方QQ用户创建成功！");
+        
     }
     
     //清除登录状态表之前的表记录
@@ -607,7 +614,8 @@
             }
             
         }];
-
+        MainViewController *nextVC=[[MainViewController alloc] init];
+        [self presentViewController:nextVC animated:YES completion:nil];
     }
     else
     {
@@ -720,7 +728,8 @@
 
     }];
     
-    
+    MainViewController *nextVC=[[MainViewController alloc] init];
+    [self presentViewController:nextVC animated:YES completion:nil];
 }
 
 - (void)requestSuccess5:(ASIHTTPRequest *)request

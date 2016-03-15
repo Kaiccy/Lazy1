@@ -7,7 +7,7 @@
 //
 
 #import "TransitionViewController.h"
-#import "MainViewController.h"
+#import "UserLoginViewController.h"
 
 @interface TransitionViewController ()
 
@@ -75,7 +75,7 @@
 {
     if (self.pageControl.currentPage == 2)
     {
-        MainViewController *manView = [[MainViewController alloc] init];
+        UserLoginViewController *manView = [[UserLoginViewController alloc] init];
         [self presentViewController:manView animated:YES completion:nil];
     }
 }

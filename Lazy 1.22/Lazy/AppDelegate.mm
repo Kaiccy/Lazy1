@@ -23,6 +23,8 @@
 
 #import "StartPageManager.h"
 
+#import "UserLoginViewController.h"
+
 @interface AppDelegate ()<WXApiDelegate>
 
 @property(nonatomic,assign)BOOL allowRotation;
@@ -105,8 +107,8 @@
         NSLog(@"user = %@ islogin = %@",user,isLOGIN);
         
         //如果存在已登录 跳转到主页面
-        if ([isLOGIN isEqualToString:@"YES"] || [StartPageManager sharedStartPageManager].firstLaunchl == NO)
-        {
+        if ([isLOGIN isEqualToString:@"YES"] || [StartPageManager sharedStartPageManager].firstLaunchl == NO){
+            
             MainViewController *view = [[MainViewController alloc]init];
             self.window.rootViewController = view;
             //为该用户设置全局头像
@@ -117,14 +119,11 @@
             if (self.name.length != 0){
                 [view.loginBt setTitle:self.name forState:UIControlStateNormal];
                 
-            }else if (self.userNickName != nil)
-            {
+            }else if (self.userNickName != nil){
                 [view.loginBt setTitle:self.userNickName forState:UIControlStateNormal];
-            }
-            else{
+            }else{
                 [view.loginBt setTitle:self.User forState:UIControlStateNormal];
-            }
-            if ([self.db close]){
+            }if ([self.db close]){
                 NSLog(@"登录页面数据库已关闭");
             }else{
                 NSLog(@"登录页面数据库关闭失败");
