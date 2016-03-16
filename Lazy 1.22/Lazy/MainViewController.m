@@ -21,6 +21,7 @@
 #import "LinkUsViewController.h"
 #import "GoodsDetailViewController.h"
 #import "ASIDownloadCache.h"
+#import "PrefixHeader.pch"
 
 @interface MainViewController ()
 

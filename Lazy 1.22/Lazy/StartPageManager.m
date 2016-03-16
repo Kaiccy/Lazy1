@@ -7,6 +7,7 @@
 //
 
 #import "StartPageManager.h"
+#import "PrefixHeader.pch"
 
 @implementation StartPageManager
 

@@ -12,6 +12,7 @@
 #import "GDataXMLNode.h"
 
 #import "SuccessPayViewController.h"
+#import "PrefixHeader.pch"
 
 
 /**

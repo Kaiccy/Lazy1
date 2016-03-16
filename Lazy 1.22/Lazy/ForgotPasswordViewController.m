@@ -8,6 +8,7 @@
 
 #import "ForgotPasswordViewController.h"
 #import "AppDelegate.h"
+#import "PrefixHeader.pch"
 
 @interface ForgotPasswordViewController ()
 

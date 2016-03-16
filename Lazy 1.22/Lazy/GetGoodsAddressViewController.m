@@ -12,6 +12,7 @@
 #import "AddressManageViewController.h"
 #import "AppDelegate.h"
 #import "SubmitOrderViewController.h"
+#import "PrefixHeader.pch"
 
 @interface GetGoodsAddressViewController ()
 

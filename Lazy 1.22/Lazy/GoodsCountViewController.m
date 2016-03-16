@@ -10,6 +10,7 @@
 #import "GoodsCountTableViewCell.h"
 #import "AppDelegate.h"
 #import "GoodsDetailViewController.h"
+#import "PrefixHeader.pch"
 
 @interface GoodsCountViewController ()
 

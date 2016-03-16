@@ -12,6 +12,7 @@
 #import "SubmitOrderViewController.h"
 #import "ViewController.h"
 #import "CommonMacro.h"
+#import "PrefixHeader.pch"
 
 @interface GoodsDetailViewController ()
 

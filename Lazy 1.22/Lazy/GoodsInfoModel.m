@@ -7,6 +7,7 @@
 //
 
 #import "GoodsInfoModel.h"
+#import "PrefixHeader.pch"
 
 @implementation GoodsInfoModel
 

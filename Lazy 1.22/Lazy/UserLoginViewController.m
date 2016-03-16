@@ -15,6 +15,7 @@
 #import <CommonCrypto/CommonDigest.h>
 #import "UMSocial.h"
 #import "MainViewController.h"
+#import "PrefixHeader.pch"
 
 @class MainViewController;
 

@@ -10,6 +10,7 @@
 #import "ChoosePayViewController.h"
 #import "GoodsCountViewController.h"
 #import "AppDelegate.h"
+#import "PrefixHeader.pch"
 
 @interface FinallyPaymentViewController ()
 

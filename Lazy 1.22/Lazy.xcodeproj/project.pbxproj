@@ -694,6 +694,7 @@
 		95AE99721C4CBDB30096ADAE /* RSADataVerifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSADataVerifier.h; sourceTree = "<group>"; };
 		95AE99731C4CBDB30096ADAE /* RSADataVerifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSADataVerifier.m; sourceTree = "<group>"; };
 		95AE998E1C4CCB1F0096ADAE /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		95BE9E181C981CE9004D8340 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = Lazy/PrefixHeader.pch; sourceTree = "<group>"; };
 		95D51D961C8FB84D0035CC02 /* LegalNoticeClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegalNoticeClassViewController.h; sourceTree = "<group>"; };
 		95D51D971C8FB84E0035CC02 /* LegalNoticeClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegalNoticeClassViewController.m; sourceTree = "<group>"; };
 		95D51D9C1C8FBCAE0035CC02 /* UserAgreementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserAgreementViewController.h; sourceTree = "<group>"; };
@@ -1405,6 +1406,7 @@
 				6D4FD40F1C933B9D008ED251 /* libsqlite3.0.tbd */,
 				6D4FD40D1C933B6E008ED251 /* libz.tbd */,
 				6D4FD40B1C933B5D008ED251 /* libc++.tbd */,
+				95BE9E181C981CE9004D8340 /* PrefixHeader.pch */,
 				95DDC9B11BB139CB0068CC32 /* Lazy */,
 				95DDC9C51BB139CC0068CC32 /* LazyTests */,
 				95DDC9B01BB139CB0068CC32 /* Products */,

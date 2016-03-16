@@ -9,6 +9,7 @@
 #import "FinallyPaymentViewController.h"
 #import "GoodsDetailViewController.h"
 #import "SubmitOrderViewController.h"
+#import "PrefixHeader.pch"
 
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate,MyCustomCellDelegate>
 {

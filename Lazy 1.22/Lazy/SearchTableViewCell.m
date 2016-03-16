@@ -7,6 +7,7 @@
 //
 
 #import "SearchTableViewCell.h"
+#import "PrefixHeader.pch"
 
 @implementation SrarchTableViewCell
 

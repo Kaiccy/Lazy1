@@ -25,6 +25,8 @@
 
 #import "UserLoginViewController.h"
 
+#import "PrefixHeader.pch"
+
 @interface AppDelegate ()<WXApiDelegate>
 
 @property(nonatomic,assign)BOOL allowRotation;

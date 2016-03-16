@@ -7,6 +7,7 @@
 //
 
 #import "LinkUsViewController.h"
+#import "PrefixHeader.pch"
 
 @interface LinkUsViewController ()
 

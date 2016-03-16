@@ -11,6 +11,7 @@
 #import "GoodsDetailViewController.h"
 #import "VegetablesTableViewCell.h"
 #import "SearchViewController.h"
+#import "PrefixHeader.pch"
 
 @interface VegetablesViewController ()
 
