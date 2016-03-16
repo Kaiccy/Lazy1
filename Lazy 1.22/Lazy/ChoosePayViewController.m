@@ -15,6 +15,7 @@
 #import "PartnerConfig.h"
 #import "DataSigner.h"
 #import "WeChatPayController.h"
+#import "PrefixHeader.pch"
 
 @interface ChoosePayViewController ()
 

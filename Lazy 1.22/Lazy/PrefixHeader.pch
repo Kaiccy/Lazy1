@@ -1,0 +1,18 @@
+//
+//  PrefixHeader.pch
+//  Lazy
+//
+//  Created by yinqijie on 16/3/15.
+//  Copyright © 2016年 yinqijie. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#ifndef __OPTIMIZE__
+#define NSLog(...) NSLog(__VA_ARGS__)
+#else
+#define NSLog(...){}
+#endif
+
+#endif /* PrefixHeader_pch */

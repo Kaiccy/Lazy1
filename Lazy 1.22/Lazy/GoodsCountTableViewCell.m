@@ -7,6 +7,7 @@
 //
 
 #import "GoodsCountTableViewCell.h"
+#import "PrefixHeader.pch"
 
 @implementation GoodsCountTableViewCell
 

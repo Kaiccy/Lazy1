@@ -8,6 +8,7 @@
 
 #import "AddressManageViewController.h"
 #import "AppDelegate.h"
+#import "PrefixHeader.pch"
 
 @interface AddressManageViewController ()
 

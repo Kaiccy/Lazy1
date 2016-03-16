@@ -7,6 +7,7 @@
 //
 
 #import "GetGoodsAddressTableViewCell.h"
+#import "PrefixHeader.pch"
 
 @implementation GetGoodsAddressTableViewCell
 

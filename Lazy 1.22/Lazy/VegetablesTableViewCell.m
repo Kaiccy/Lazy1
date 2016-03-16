@@ -7,6 +7,7 @@
 //
 
 #import "VegetablesTableViewCell.h"
+#import "PrefixHeader.pch"
 
 @implementation VegetablesTableViewCell
 

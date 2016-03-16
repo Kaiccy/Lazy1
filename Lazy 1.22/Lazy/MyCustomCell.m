@@ -8,6 +8,7 @@
 
 #import "MyCustomCell.h"
 #define WIDTH ([UIScreen mainScreen].bounds.size.width)
+#import "PrefixHeader.pch"
 
 @implementation MyCustomCell
 

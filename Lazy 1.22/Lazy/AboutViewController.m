@@ -10,6 +10,7 @@
 #import "MainViewController.h"
 #import "LegalNoticeClassViewController.h"//免责声明文件
 #import "UserAgreementViewController.h"//用户协议文件
+#import "PrefixHeader.pch"
 
 @interface AboutViewController ()
 
