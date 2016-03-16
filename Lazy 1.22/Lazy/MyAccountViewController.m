@@ -461,6 +461,7 @@
     UIAlertAction *exitAction = [UIAlertAction actionWithTitle:@"退出登录" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         //退出登录弹出框
         self.alter = [[UIAlertView alloc] initWithTitle:@"退出登录" message:@"您是否要退出登陆?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        
         [self.alter show];
         
     }];
@@ -480,6 +481,10 @@
         NSString *delete1 = [NSString stringWithFormat:@"DELETE FROM LOGIN_STATE WHERE TEL = '%@';", self.User];
         [self.db executeUpdate:delete1];
         
+        AppDelegate *del = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        del.User = nil;
+        del.userId = nil;
+        del.userNickName = nil;
         
         //退出登录，删除订单列表并返回主页面
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"退出成功 " preferredStyle:UIAlertControllerStyleAlert];
