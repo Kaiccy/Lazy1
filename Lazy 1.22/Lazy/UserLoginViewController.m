@@ -417,7 +417,7 @@
         [result appendFormat:@"%02x", digest[i]];
     NSLog(@"result = %@",result);
     
-    if ([result isEqualToString:self.pwdStr] || [returncode1 isEqualToString:@"ok"] || [self.pwdTextField.text isEqualToString:self.pwdStr])
+    if ([result isEqualToString:self.pwdStr] && [returncode1 isEqualToString:@"ok"] && [self.pwdTextField.text isEqualToString:self.pwdStr])
     {
         
         //清除登录状态表之前的表记录
