@@ -184,25 +184,28 @@
     /**
      * 手机号码
      * 移动：134[0-8],135,136,137,138,139,150,151,157,158,159,182,187,188
+     添加：152 183 184 178  184
      * 联通：130,131,132,152,155,156,185,186
+     添加：176
      * 电信：133,1349,153,180,189
+     添加：177   181   173
      */
-    NSString * MOBILE = @"^1(3[0-9]|5[0-35-9]|8[025-9])\\d{8}$";
+    NSString * MOBILE = @"^1(3[0-9]|5[0-9]|7[0-9]|8[0-9])\\d{8}$";
     /**
      10         * 中国移动：China Mobile
      11         * 134[0-8],135,136,137,138,139,150,151,157,158,159,182,187,188
      12         */
-    NSString * CM = @"^1(34[0-8]|(3[5-9]|5[017-9]|8[278])\\d)\\d{7}$";
+    NSString * CM = @"^1(34[0-8]|(3[5-9]|5[0-9]|7[7]|8[2-8])\\d)\\d{7}$";
     /**
      15         * 中国联通：China Unicom
      16         * 130,131,132,152,155,156,185,186
      17         */
-    NSString * CU = @"^1(3[0-2]|5[256]|8[56])\\d{8}$";
+    NSString * CU = @"^1(3[0-2]|7[6]|5[256]|8[56])\\d{8}$";
     /**
      20         * 中国电信：China Telecom
      21         * 133,1349,153,180,189
      22         */
-    NSString * CT = @"^1((33|53|8[09])[0-9]|349)\\d{7}$";
+    NSString * CT = @"^1((33|53|7[37]|8[019])[0-9]|349)\\d{7}$";
     /**
      25         * 大陆地区固话及小灵通
      26         * 区号：010,020,021,022,023,024,025,027,028,029
@@ -315,11 +318,9 @@
     }
 }
 //确定登录
-- (IBAction)sureLoginBt:(id)sender
-{
-    NSLog(@"===================userloginviewcontroller319");
-    if ((self.telnumTextField.text.length > 0 && self.pwdTextField.text.length > 0) || (self.telnumTextField.text.length > 0 && self.sureTextField.text.length > 0))
-    {
+- (IBAction)sureLoginBt:(id)sender{
+    
+    if ((self.telnumTextField.text.length > 0 && self.pwdTextField.text.length > 0)) {
         //用户信息获取接口
         NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"http://junjuekeji.com/appServlet?requestCode=A02&phoneNumber=%@",self.telnumTextField.text]];
         
@@ -327,21 +328,36 @@
         [requestUrl setDelegate:self];
         [requestUrl setRequestMethod:@"GET"];
         [requestUrl setTimeOutSeconds:60];
-        [requestUrl setDidFinishSelector:@selector(requestSuccess1:)];
-        [requestUrl setDidFailSelector:@selector(requestError1:)];
+        [requestUrl setDidFinishSelector:@selector(requestSuccess11:)];
+        [requestUrl setDidFailSelector:@selector(requestError11:)];
         [requestUrl startSynchronous];
-        NSLog(@"===================userloginviewcontroller331");
-        MainViewController *nextVC=[[MainViewController alloc] init];
-        [self presentViewController:nextVC animated:YES completion:nil];
-    }
-    else
-    {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"错误提示" message:@"请检查输入错误" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+        
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"您说输入的账号或密码不正确" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
         [alert show];
     }
+    
+//    if ((self.rtelnumTextField.text.length > 0 && self.rpwdTextField.text.length > 0) || (self.rtelnumTextField.text.length > 0 && self.sureTextField.text.length > 0))
+//    {
+//        //用户信息获取接口
+//        NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"http://junjuekeji.com/appServlet?requestCode=A02&phoneNumber=%@",self.telnumTextField.text]];
+//        
+//        ASIHTTPRequest *requestUrl = [ASIHTTPRequest requestWithURL:url];
+//        [requestUrl setDelegate:self];
+//        [requestUrl setRequestMethod:@"GET"];
+//        [requestUrl setTimeOutSeconds:60];
+//        [requestUrl setDidFinishSelector:@selector(requestSuccess11:)];
+//        [requestUrl setDidFailSelector:@selector(requestError11:)];
+//        [requestUrl startSynchronous];
+//        MainViewController *nextVC=[[MainViewController alloc] init];
+//        [self presentViewController:nextVC animated:YES completion:nil];
+//    }else{
+//        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"错误提示" message:@"请检查输入错误" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+//        [alert show];
+//    }
 }
 
-- (void)requestSuccess1:(ASIHTTPRequest *)request
+- (void)requestSuccess11:(ASIHTTPRequest *)request
 {
     NSData *data  = [request responseData];
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
@@ -351,6 +367,8 @@
     if ([returncode isEqualToString:@"ok"])
     {
         NSLog(@"登录用户信息获取成功");
+        MainViewController *nextVC=[[MainViewController alloc] init];
+        [self presentViewController:nextVC animated:YES completion:nil];
     }
     if (returnListArry.count != 0)
     {
@@ -363,17 +381,19 @@
     [requestUrl setDelegate:self];
     [requestUrl setRequestMethod:@"GET"];
     [requestUrl setTimeOutSeconds:60];
-    [requestUrl setDidFinishSelector:@selector(requestSuccess2:)];
-    [requestUrl setDidFailSelector:@selector(requestError2:)];
+    [requestUrl setDidFinishSelector:@selector(requestSuccess22:)];
+    [requestUrl setDidFailSelector:@selector(requestError22:)];
     [requestUrl startSynchronous];
 }
 
-- (void)requestError1:(ASIHTTPRequest *)request{
+- (void)requestError11:(ASIHTTPRequest *)request{
+    MainViewController *nextVC=[[MainViewController alloc] init];
+    [self presentViewController:nextVC animated:YES completion:nil];
+
     NSError *error = [request error];
-    NSLog(@"===================userloginviewcontroller372");
 }
 
-- (void)requestSuccess2:(ASIHTTPRequest *)request{
+- (void)requestSuccess22:(ASIHTTPRequest *)request{
     AppDelegate *del = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     
     NSData *data  = [request responseData];
@@ -416,8 +436,7 @@
         [self.db executeUpdate:insertSql1];
 
         NSLog(@"登录成功");
-        MainViewController *nextVC=[[MainViewController alloc] init];
-        [self presentViewController:nextVC animated:YES completion:nil];
+
         if ([self.db close])
         {
             NSLog(@"登录页面数据库已关闭");
@@ -428,20 +447,13 @@
         }
     
         del.User = self.telnumTextField.text;
-        
-        
         [self dismissViewControllerAnimated:YES completion:nil];
         
-    }
-    else
-    {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"确定已经注册？" message:@"登录名或密码错误" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
-        [alert show];
     }
     
 }
 
-- (void)requestError2:(ASIHTTPRequest *)request
+- (void)requestError22:(ASIHTTPRequest *)request
 {
     NSError *error = [request error];
     NSLog(@"%@", [error localizedDescription]);
